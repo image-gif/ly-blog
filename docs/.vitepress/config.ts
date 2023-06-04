@@ -27,19 +27,9 @@ export default defineConfig({
         ]
       },
       { text: '随笔', link: '/essay/index' },
-      { text: 'gitee', link: 'https://gitee.com/codingpeasant12' }
-      // { text: 'Examples', link: '/markdown-examples' }
+      { text: 'gitee', link: 'https://gitee.com/codingpeasant12' },
+      {text: '项目实践', link: '/project/index'}
     ],
-
-    // sidebar: [
-    //   {
-    //     text: 'Examples',
-    //     items: [
-    //       { text: 'Markdown Examples', link: '/markdown-examples' },
-    //       { text: 'Runtime API Examples', link: '/api-examples' }
-    //     ]
-    //   },
-    // ],
     sidebar: {
       '/front-end/html/': [
         {
@@ -66,6 +56,15 @@ export default defineConfig({
         {
           text: '计算机基础',
           items: [{ text: '基础', link: '/computer-base/index' }]
+        }
+      ],
+      '/project/': [
+        {
+          text: '项目实践',
+          items: [
+            {text: '概述', link: '/project/index'},
+            {text: '项目部署', link: '/project/deploy'}
+          ]
         }
       ]
     },
