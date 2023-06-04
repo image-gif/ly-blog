@@ -6,7 +6,7 @@ export default defineConfig({
   title: '🌕诗月随笔🌈',
   titleTemplate: '一个前端coder的学习笔记',
   description: '一个前端coder的学习笔记',
-  head: [['link', { rel: 'icon', href: 'public/favicon.ico' }]],
+  head: [['link', { rel: 'icon', href: '/ly-blog/favicon.ico' }]],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
