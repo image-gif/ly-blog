@@ -8,7 +8,7 @@
 >
 > 若将两个有序集合并成一个有序表，称为 2-路归并，与之对应的还有多路归并。
 
-![img](<../../public/1280X1280%20(3).png>)
+![img](../../public/sort.png)
 
 ```JavaScript
 var mergeSort = function (nums, startIndex, endIndex) {

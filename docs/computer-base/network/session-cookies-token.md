@@ -2,7 +2,7 @@
 
 ## 1. session&cookies 的缺点
 
-![img](../../public/1280X1280%20(1).png)
+![img](../../public/session-cookie.png)
 
 - Cookies 会被附加到每个 http 请求中，所以无形中增加了流量（事实上某些请求是不需要的）；
 - Cookies 是明文传递的，所以存在安全性的问题；
@@ -29,7 +29,7 @@
 
 ## 3. JWT 实现 Token 机制
 
-![img](../../public/1280X1280%20(2).png)
+![img](../../public/jwt-token.png)
 
 ## 4. Openssl
 
