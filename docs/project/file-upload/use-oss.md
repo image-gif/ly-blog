@@ -285,17 +285,17 @@ multipartUpload();
 > - https://help.aliyun.com/document_detail/32077.htm?spm=a2c4g.100624.0.0.b6a54f77gbOgzs#section-zkq-3rq-dhb
 > - https://help.aliyun.com/document_detail/100624.html?spm=a2c4g.31848.0.i1#section-ezw-6mu-bv1
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=MDY2NDBmNzNmZDZiNmE5MzliOWE1YTJlNmYzNTY5YWJfVHpTQTdkdWlNb1ZlYlB2Y3QzMDZBNzJkeVA3WER0eFJfVG9rZW46UTdxTmJ0dU9qb0NZM1l4YW1GU2NwZmM2bmJkXzE2ODU5NDk1MzY6MTY4NTk1MzEzNl9WNA)
+![img](../../public/1f250292-61ce-46cc-aff8-dbe38e35209a.png)
 
 使用 STS 授权用户直接访问 OSS 的流程如下：
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=NTY2NTY4NTc0ZGNmYzQ0MjNkM2NkZmM2ODkwNmM3N2RfY3RZUTNBRXo5V3FURHhiU0NFSm5FN0QxTE1sNGpLaHpfVG9rZW46Rmk2RmI5ZG1abzVYd0t4ZUJkeGNHTWU4blBjXzE2ODU5NDk1MzY6MTY4NTk1MzEzNl9WNA)
+![img](../../public/463f0db2-be5f-4bbf-ae8d-c140fa653c23.png)
 
 ## 碰到的一些问题
 
 1. ### 浏览器访问 OSS 时出现跨域
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=MjU1YjcxOWJmNzE3MWUwZGM4MzI3NWYyYzdmNTAyYmZfTjJ4QTZDcGVWMEpVN0ZQQUZaVGVxbHZoWXo3R0RHVWxfVG9rZW46SnN2Q2J0dDJMb3NCdEx4QzVjTWM5Q2RGblBoXzE2ODU5NDk1MzY6MTY4NTk1MzEzNl9WNA)
+![img](../../public/18c4c330-917a-46f2-b044-2bc61378c9ee.png)
 
 1. ### 关于使用临时访问凭证访问 OSS 时，出现 Access Id 不存在之类的问题
 
@@ -321,12 +321,12 @@ multipartUpload();
 
 5. ### 进行分片上传时，提示没有暴露 Etag
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=M2Q0NTVkMTE4ZGI5MGIyYmI0ZjE4MWZmZDhhYjcyODlfdkdhVm5QbUVLbkVabnlwc1AwUG9aNGdsS1ZxUGNLcWJfVG9rZW46SkUxR2J1eTJ1bzBWSFF4VkV0eGNvZWxabktmXzE2ODU5NDk1MzY6MTY4NTk1MzEzNl9WNA)
+![img](../../public/bd47360b-5bfe-4066-8212-4c442333cd93.png)
 
 1. ### 不支持 x-oss-storage-class
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=NWU3NmNiYzkwZmEzMGYwMTQ2MGUyNTUxNTNkYzQ0M2FfZkc1RFFwYTNVbVBLRHh5QmpON0dtbTV1MTh0VHNrSXNfVG9rZW46WXdHcGJKNGZ4b3Q0R0l4dHVHV2N5SlFwbmpnXzE2ODU5NDk1MzY6MTY4NTk1MzEzNl9WNA)
+![img](../../public/fd56067b-eb04-4550-a051-a858a702e59f.png)
 
 **解决方法：直接将对应的属性注释**
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=NjAwNzkwZmY0MjJhZDEzYTdmZWYwMmIyMDJlZjU2NjVfSFI2TER4MHJRZ1hyYjlhMHB5U2E2T0RyVEhibzAxZ1lfVG9rZW46QUhJbmJrNkV5b0ROQ3F4V0RiTWNXV1BKbjllXzE2ODU5NDk1MzY6MTY4NTk1MzEzNl9WNA)
+![img](../../public/e9e3c13b-67aa-4e94-ad42-1ca3aa1faf30.png)

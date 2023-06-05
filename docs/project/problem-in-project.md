@@ -452,13 +452,13 @@ uploadImage(file) {
 
 > 这个时候会出现的直接在输入框中回车时，会出现页面被整体刷新
 
-![](https://img-blog.csdnimg.cn/2c62612afbf74b49890e8aa16d3e02a7.png)
+![refresh](../public/2c62612afbf74b49890e8aa16d3e02a7.png)
 
 **解决方案：**
 
 `el-form`上面添加`@submit.native.prevent`阻止默认事件
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/af4dbfa16277484680e97792d232f865.png)
+![@submit.native.prevent](../public/af4dbfa16277484680e97792d232f865.png)
 
 ## 26. vue-treeselect 下拉数据被遮挡问题
 
@@ -652,7 +652,7 @@ taskkill /f /pid 进程号()  // 关闭进程
 tasklist
 ```
 
-![img](https://img-blog.csdnimg.cn/7117742b389e4a1aa3fb2900dc097b06.png)
+![img](../public/7117742b389e4a1aa3fb2900dc097b06.png)
 
 ## 37. 使用 webSocket
 

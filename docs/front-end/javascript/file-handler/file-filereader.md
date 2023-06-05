@@ -26,7 +26,7 @@ new File(fileParts, fileName, [options]);
 
 这就是我们从 `<input type="file">` 中获取 `File` 对象的方式：
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=NzA2YzdiYWU0MGM2ZTZhNzYzMWVhZTg4NGZjNjJjMmNfQ0Z5VU1CSjZkbTY5dmJoTnNqWk0wV1RTYnJ5QzJMdWdfVG9rZW46TUJhamJIeWZlbzgxQ2d4VHB5RmNKWGY3blVjXzE2ODU5NDc3MDc6MTY4NTk1MTMwN19WNA)
+![img](../../../public/caf19d22-e3a4-45c1-a67e-8d408b8a0af8.png)
 
 ```HTML
 <input type='file' onchange='showFile(this)' />

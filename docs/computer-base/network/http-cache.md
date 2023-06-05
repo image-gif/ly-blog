@@ -103,4 +103,4 @@ s-maxage:是给中间服务器设置的缓存时长，只有在 public 下，才
 
 ### 1.3 缓存策略
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=MDQ2ZDNhZWEyM2Q1ZGIzZDk1NThjOGJjOWU1YjkyMTdfQlRJQnRBSmVsYUI0ZzcwMlh0RXhiZXNuYVFVdjFvUjdfVG9rZW46Ym94Y255S1NUQUlSeHMyUm96YzBYNFp5cW9kXzE2ODU5Mzg5Mzg6MTY4NTk0MjUzOF9WNA)
+![img](../../public/965a3df9-ba0d-4d3f-b34e-60b81cb75200.png)

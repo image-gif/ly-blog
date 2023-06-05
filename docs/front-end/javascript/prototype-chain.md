@@ -26,7 +26,7 @@
 >
 > 这是每一个 JavaScript 对象(除了 null )都具有的一个属性，叫**proto**，这个属性会指向该对象的原型。
 
-暂时无法在飞书文档外展示此内容
+![](../../public/prototype-chain.jpg)
 
 > 当读取实例的属性时，如果找不到，就会查找与对象关联的原型中的属性，如果还查不到，就去找原型的原型，一直找到最顶层为止。
 
@@ -48,7 +48,7 @@ delete person.name;
 console.log(person.name); // 'person' --> Person.prototype.name Person原型上的属性
 ```
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=MjNjNWI2YTZmOTZkNDhlZDhiOWQxOTljYjY1Y2MxNGFfOWJNU0VIdFBMV0Q0cElseHdVbHJyQ3JkOHQzS1Q5akdfVG9rZW46Ym94Y25CT09yZ2xZeXk0ZUJYWjY4U1lySmliXzE2ODU5NDU4OTc6MTY4NTk0OTQ5N19WNA)
+![img](../../public/understand-prototype.png)
 
 ## 3. 继承
 
@@ -161,7 +161,7 @@ console.log(stu);
 
 **result**:
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=NDRmODkyZWJmYTdlMTk3ZGNjMGU2OTFhYmU5ZDNlZmZfb1F6aHJvYmlsSFo1eTU0cWRWcVJKbVB1ejFJekduWERfVG9rZW46Ym94Y25uc1ZsR3hpbDlDOVhrM0FLclNjYU9mXzE2ODU5NDU4OTc6MTY4NTk0OTQ5N19WNA)
+![img](../../public/f9028072-9d1b-43fc-990f-200e76bccd74.png)
 
 - 异曲同工
 
@@ -187,7 +187,7 @@ function createObject1(obj) {
 var stu = createObject1(person);
 ```
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=M2MzNjQ1Y2M2NmRlNzM1YTgxYTFlNDA0NDY5MmJhYWFfQTc5NXNMVklCUDc2R1lha00wMzBycEJjcW81aHAycGVfVG9rZW46TXN3SmJ6SFJab2g4WUx4YTBqNmMwREhIblRCXzE2ODU5NDU4OTc6MTY4NTk0OTQ5N19WNA)
+![img](../../public/c93a55a1-a66f-4cab-a869-ce346fca81c1.png)
 
 摘录自：http://www.mollypages.org/tutorials/js.mp
 

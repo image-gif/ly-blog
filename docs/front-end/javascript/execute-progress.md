@@ -44,7 +44,7 @@ JS 引擎内部在解析以上代码时，会创建一个全局对象（伪代�
 
 下面就通过一幅图，来看看 GEC 被放入 ECS 后的表现形式：
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=YTE1ZTcyM2M4NjUwZjU3OWQyYzg3YWNjNDg0ZTQ0MGRfbm9aOFNpaGtqYlJmYTAyVEVIalZyT1QxNGFyeWJvVHVfVG9rZW46Ym94Y256WFg5NU1nc1hTcGZFcmtnREdvZWVnXzE2ODU5NDYzNzY6MTY4NTk0OTk3Nl9WNA)
+![img](../../public/execute-progress001.png)
 
 ### **3.调用栈调用 GEC 的过程**
 
@@ -61,15 +61,15 @@ var name = 'curry'console.log(message) var message = 'I am a coder'function foo(
   - 从上往下解析 JS 代码，当解析到 foo 函数时，因为 foo 不是普通变量，并不会赋为 undefined，JS 引擎会在堆内存中开辟一块空间存放 foo 函数，在全局对象中引用其地址；
   - 这个开辟的函数存储空间最主要存放了该函数的**父级作用域**和函数的**执行体代码块**；
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=MGMwNDRiNWRhMTIwOGY2Y2MzOTM5Y2ZiY2U2ZGMyZmJfVjI1dEMyenozSnRSQ3o5RzNmU0IyWlNrTTJQcVM2Zm9fVG9rZW46Ym94Y254OVNvN3Z2bmVXTWJqeXFEVDhjTUxjXzE2ODU5NDYzNzY6MTY4NTk0OTk3Nl9WNA)
+![img](../../public/execute-progress002.png)
 
 - 2.构建一个全局执行上下文（GEC），代码执行前将 VO 的内存地址指向 GlobalObject（GO）。
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDMzYTE1ZDhiNzhmMjM2OTk3OThjYTQ0ZmE1NzNmN2FfVGxsU0VGVnJUOGNNSzg3ZVVZOFFWME5WYmx6UFl1cWhfVG9rZW46Ym94Y25IRVEzUGNSSnB2cDdocXlQcm5qcjFlXzE2ODU5NDYzNzY6MTY4NTk0OTk3Nl9WNA)
+![img](../../public/execute-progress003.png)
 
 - 3.将全局执行上下文（GEC）放入执行上下文栈（ECS）中。
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=YTFjY2U4ZGU3ZjQxY2YzYjFlMjBmOTk2NjZhZDAzYzBfdm1jaElKbmtsa0I4cEhHMXNNaUt1VDk2MUdpQ3BsVnpfVG9rZW46Ym94Y256MFFZcGFuQUVQQU9GcUlseWx2dmFkXzE2ODU5NDYzNzY6MTY4NTk0OTk3Nl9WNA)
+![img](../../public/execute-progress004.png)
 
 - 4.从上往下开始执行全局代码，依次对 GO 对象中的全局变量进行赋值。
   - 当执行`var name = 'curry'`时，就从 VO（对应的就是 GO）中找到 name 属性赋值为 curry；
@@ -77,7 +77,7 @@ var name = 'curry'console.log(message) var message = 'I am a coder'function foo(
   - 后面就依次进行赋值，执行到`var result = num1 + num2`，也是从 VO 中找到 num1 和 num2 两个属性的值进行相加，然后赋值给 result，result 最终就为 50；
   - 最后执行到`foo()`，也就是需要去执行 foo 函数了，这里的操作是比较特殊的，涉及到**函数执行上下文**，下面来详细了解；
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjJkM2YxZDQ4MGM1MTI3NzZlYzViZWM1NGFhYjA0YzFfVVFUSmFwV29qdUtOR1NscW1vbjdXY1lWZEY5UWxmcldfVG9rZW46Ym94Y24wMzBsclRVMkNXc3BLS2hSRHVibkllXzE2ODU5NDYzNzY6MTY4NTk0OTk3Nl9WNA)
+![img](../../public/execute-progress005.png)
 
 ### **4.函数执行上下文**
 
@@ -96,7 +96,7 @@ var name = 'curry'console.log(message) var message = 'I am a coder'function foo(
 - 根据 AO 生成函数执行上下文（FEC），并将其放入执行上下文栈（ECS）中；
 - 开始执行 foo 函数内代码，依次找到 AO 中的属性并赋值，当执行`console.log(name)`时，就会去 foo 的 VO（对应的就是 foo 函数的 AO）中找到 name 属性值并打印；
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=NjkxMzBhMjk5MWQxYmVkNGFhNWM2MDM1NTUwNGQ2YTBfaDI2TVRZcjJpcTNFTjh2SFB1eWc5NkExMTg2dHNuNElfVG9rZW46Ym94Y25JQnpYb1h3Y2I1OG5GeXVRUWxSODlWXzE2ODU5NDYzNzY6MTY4NTk0OTk3Nl9WNA)
+![img](../../public/execute-progress006.png)
 
 ### **5.变量环境和记录**
 
@@ -122,34 +122,34 @@ var message = 'global'function foo(m) { var message = 'foo' console.log(m) funct
 - 初始化全局对象（GO），执行全局代码前创建 GEC，并将 GO 关联到 VO，然后将 GEC 加入 ECS 中：
   - foo 函数存储空间中指定的父级作用域为全局对象；
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=MzdiM2U0MjRiY2Y5MzMwMDEyYzdjMzBlNTZmMGJlN2NfM3IzQW1iOVBQWG9LZFY5YTVDT2FWckJWakdMNFBERTVfVG9rZW46Ym94Y25BcUNxeTlnVnkzN0NJZkRoUUxrTU1jXzE2ODU5NDYzNzY6MTY4NTk0OTk3Nl9WNA)
+![img](../../public/execute-progress007.png)
 
 - 开始执行全局代码，从上往下依次给全局属性赋值：
   - 给 message 属性赋值为 global；
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=YzI0MmNjOWVhNzBmM2FiN2IzZDQyZmE5ZGQ3MWQ4OTBfZDlIY2dxZDF1UnV2YVpLb2ViZ2ZvemZVN0dtNjdUbmZfVG9rZW46Ym94Y25IQWV6WjBrdmlVQzNRSmI3ZlpQR0llXzE2ODU5NDYzNzY6MTY4NTk0OTk3Nl9WNA)
+![img](../../public/execute-progress008.png)
 
 - 执行到 foo 函数调用，准备执行 foo 函数前，创建 foo 函数的 AO：
   - bar 函数存储空间中指定父级作用域为 foo 函数的 AO；
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=ZGJmNDRlNWEzODFmMGYxMzM2Y2QyZTE5YmYwZWU0NDBfT0ZCZ1NVdWRqYVZVRVhPQ0oyUUxWUFVTZnFIdERKWmdfVG9rZW46Ym94Y25vV3hkYXE4NlZIQ3hCeklDZHBaOHFlXzE2ODU5NDYzNzY6MTY4NTk0OTk3Nl9WNA)
+![img](../../public/execute-progress009.png)
 
 - 创建 foo 函数的 FEC，并加入到 ECS 中，然后开始执行 foo 函数体内的代码：
   - 根据 foo 函数调用的传参，给形参 m 赋值为 30，接着给 message 属性赋值为 foo；
   - 所以，m 打印结果为 30；
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=MjIzOTgzMWMxZGFiYzM1ODIwYmQ0YjhlNmI2M2MwODZfSmh3aVVJa1ZTUFVsdUQzRHJvMk9nVjJhMlB1dmhMaUhfVG9rZW46Ym94Y255bmVvU1JzN2g5bWhJdndrUU9HNWZiXzE2ODU5NDYzNzY6MTY4NTk0OTk3Nl9WNA)
+![img](../../public/execute-progress010.png)
 
 - 执行到 bar 函数调用，准备执行 bar 函数前，创建 bar 函数的 AO：
   - bar 函数中没有定义属性和声明函数，以空对象表示；
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDRlNTE5NTg1ZTFkY2ZiOWM5NTRkOTBlYzQ3ZDc3ODhfckRsNWRVd3cyTDV6QktSdTl6NklLY0VySWV5NDRWYVFfVG9rZW46Ym94Y25zcXBRd2hUR3lwVEhXbTVRSFlXTFNmXzE2ODU5NDYzNzY6MTY4NTk0OTk3Nl9WNA)
+![img](../../public/execute-progress011.png)
 
 - 创建 bar 函数的 FEC，并加入到 ECS 中，然后开始执行 bar 函数体内的代码：
   - 执行`console.log(message)`，会先去 bar 函数自己的 VO 中找 message，没有找到就往上层作用域的 VO 中找；
   - 这里 bar 函数的父级作用域为 foo 函数，所以找到 foo 函数 VO 中的 message 为 foo，**打印结果为 foo**；
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=NDk2YzM3MGFmMzBkMDhjNzkyNTlkNmY2YmNjYjc2NWFfS3Y2ZzI4TmUwOXpvYmdObGNVQXdMb1hNY1pxTDlrUWtfVG9rZW46Ym94Y25raFhHbHZJQTNGZk5TVTE2bUMxeWNiXzE2ODU5NDYzNzY6MTY4NTk0OTk3Nl9WNA)
+![img](../../public/execute-progress012.png)
 
 - 全局中所有代码执行完成，bar 函数执行上下文出栈，bar 函数 AO 对象失去了引用，进行销毁。
 - 接着 foo 函数执行上下文出栈，foo 函数 AO 对象失去了引用，进行销毁，同样，foo 函数 AO 对象销毁后，bar 函数的存储空间也失去引用，进行销毁。

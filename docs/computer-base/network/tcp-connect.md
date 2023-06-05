@@ -6,7 +6,7 @@
 
 ## 1. **三次握手**
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=N2YyYTI2NDc4NzE3ZTNhNjIyYzZhNDVjYWYxMzYzYzVfbjZWN2pVZzhhS0lQWXZzT0tHUmtFbFlNZ1oxelU4OXpfVG9rZW46Ym94Y25aNzdvTVRtRnVPd3NwSjlKOEdneXhiXzE2ODU5MzkwMjQ6MTY4NTk0MjYyNF9WNA)
+![img](../../public/6a044159-90bd-4955-9e6c-929f23a3025d.png)
 
 - 客户端准备建立连接，此时客户端向服务器向发送一个 SYN=1(表示建立新链接),序号 seq=x(一般 x 为 1)的 tcp 报文，之后客户端进入 syn-send 状态；
 
@@ -18,7 +18,7 @@
 
 ## 2. **四次挥手**
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=MWUxZTUxYWEwNmNiZTNkNDk1OWZlMjRhMDFhYzI0MWVfUTNSQ0cyYkMwdUlISXVKMXV5VlVQcjB3aXkzanpWUnZfVG9rZW46Ym94Y25pcmp4bjVRbGNWbzE5Q1h1bjY1WENoXzE2ODU5MzkwMjQ6MTY4NTk0MjYyNF9WNA)
+![img](../../public/aa2a69e4-c6e3-4fe5-8662-e80ce05dbaf3.png)
 
 - 客户端准备关闭连接时，会发送一个 TCP 首部 FIN 标志位置为 1 的报文，之后客户端进入 FIN_WAIT_1 状态；
 - 服务端收到客户端发送的 FIN 报文后，就向客户端发送 ACK 应答报文，之后服务端进入 CLOSED_WAIT 状态；

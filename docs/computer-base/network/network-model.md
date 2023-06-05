@@ -1,8 +1,8 @@
 # 网络模型结构
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=MzVkOTRjMGIyNjE3YzU4MTQwMWZlMTIyZjg1ZTRiNDJfcXNIOEFKUDdZMFBVbDhIRWFRSG5nVGJadU5aV3VMNEFfVG9rZW46RkFFQmJ6ZTZnb0pBWW14UlRaa2NnTlJvbm1sXzE2ODU5NDQyMDM6MTY4NTk0NzgwM19WNA)
+![img](../../public/60d051b6-78cf-4f81-913e-bfea332275ea.png)
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=ZGI5YTk2NWI3NGQ4YWU2NGViNjIzNTRmYWY4ZjE5MGNfdlBOTkpQRVFIQjBRVHNXVHdOT05NQWxSaU45cVpXT0dfVG9rZW46RGZkb2JpeDdhb3ZaZTl4N0diUmNLd2VVblplXzE2ODU5NDQyMDM6MTY4NTk0NzgwM19WNA)
+![img](../../public/309743fb-0e9e-42fb-b986-a5b2a52c4253.png)
 
 ### OSI 七层模型介绍
 
@@ -26,7 +26,7 @@
 
 进行逻辑寻址，实现不同网络之间的一个路径选择．如图当我们再进行数据发送时候，中间可能会经过很多的路由器进行一个转发，而网络层就在此实现一个路径选择．再发送过程中不断寻址，拆解头部，重新封装寻址．
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=NTQ5MDFmNTZmMGZjNTBlOWQ5NjdiMmMwMDA0NjJmMzBfNDFaSjVMeWgwQnRpSG9FbThvekRTSWRIYzg5blgyRUVfVG9rZW46VjI3ZGJBMjB4b3Q0SEx4UWZJU2NKTzN4bndnXzE2ODU5NDQyMDM6MTY4NTk0NzgwM19WNA)
+![img](../../public/7cae4d88-c0cf-4938-8a16-8b8d72c058d6.png)
 
 （６）数据链路层
 

@@ -116,6 +116,10 @@ export default defineConfig({
               link: '/computer-base/network/network-model'
             },
             {
+              text: 'Ajax',
+              link: '/computer-base/network/ajax'
+            },
+            {
               text: 'axios基本使用',
               link: '/computer-base/network/axios-base'
             },

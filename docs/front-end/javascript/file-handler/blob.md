@@ -8,7 +8,7 @@
 
 `Blob` 由一个可选的字符串 `type`（通常是 MIME 类型）和 `blobParts` 组成 —— 一系列其他 `Blob` 对象，字符串和 `BufferSource`。
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDBkZDU2ZmM1NjU4ZDNlNTFiNDNmN2M2NDYzOTA3MjdfSE1wUDJFWmZTZ2tFcE1mRE5KWDhCWjNCbGVkajh3bGtfVG9rZW46VmtORGJoRGpCbzZGam94ZE04OWNsbnBybjJnXzE2ODU5NDc2NTY6MTY4NTk1MTI1Nl9WNA)
+![img](../../../public/af5a6fe0-8c6b-4fa5-beea-ac1392310c9a.png)
 
 构造函数使用:
 
@@ -129,7 +129,7 @@ blob:https://javascript.info/1e67e00e-860d-40a5-89ae-6ab0cbee6273
 
 浏览器将解码该字符串，并显示图像：
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=ZWY1MzY1ZGU0ZTA4NjhjZTYzM2NiNDJhZjc1ZTU2ODJfcUNuZjdMUWw0dVBJRUpjQVRjamZEMTE3MmRmR3d0djRfVG9rZW46V0JQaGJkVDE0b0JvOEl4UXpRQmNHbDUxbmRmXzE2ODU5NDc2NTY6MTY4NTk1MTI1Nl9WNA)
+![img](../../../public/99c8b7f5-5bcf-4a23-92a3-36390136343c.png)
 
 我们使用内建的 `FileReader` 对象来将 `Blob` 转换为 base64。它可以将 `Blob` 中的数据读取为多种格式。在[下一章](https://zh.javascript.info/file) 我们将更深入地介绍它。
 
@@ -152,7 +152,7 @@ reader.onload = function() {
 
 这两种从 `Blob` 创建 URL 的方法都可以用。但通常 `URL.createObjectURL(blob)` 更简单快捷。
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=MzUzZTdmMTRjN2ZiZjZmYzk1ZmFmMTdlZGFlYWVkZWJfZ1VGYlBDYVBXVU1Lc1lQWWx5QlBDcHQxM0F1WUJRTnpfVG9rZW46RFlGeWJsMFdsb1BtcXl4eFAzMGNzc0FobndoXzE2ODU5NDc2NTY6MTY4NTk1MTI1Nl9WNA)
+![img](../../../public/8ea0bdff-5692-4c80-9d8d-9fcf9401a43b.png)
 
 [Image 转换为 blob](https://zh.javascript.info/blob#image-zhuan-huan-wei-blob)
 

@@ -12,9 +12,9 @@
 
 > 一个 http 请求包含：请求行，请求头，请求空行，请求体
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=YmVmNjA0ODdjZWI3N2M0NzVhNmI5MDU1MWE5MmE5NTlfRFV1TjNBTjdaTkpxT3g0SDlyenB1Z2c1VGVXZExOeThfVG9rZW46Ym94Y25YNTBhVTJ6ZVZSWXBNbXBGS1pKOWlmXzE2ODU5Mzk0NDY6MTY4NTk0MzA0Nl9WNA)
+![img](../../public/5cafd51a-e6ed-4cbd-a380-742d2c72fdac.png)
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=MjdjYzRiOWQ1NWU3ODYyYzMyN2E1YmIxMTc5ZTI1NzVfTUdkc2pWTnpjclllcVFHQ053dTQ1TzFyejlqMWp0T0xfVG9rZW46Ym94Y25ScWZDY0hna2JuVlhtcWJYbUIzRFlmXzE2ODU5Mzk0NDY6MTY4NTk0MzA0Nl9WNA)
+![img](../../public/14fc4e88-f3f2-4a48-897f-0e2781685290.png)
 
 ### 1.1 请求行
 
@@ -44,7 +44,7 @@
 >
 > 我们可以给 GET 加请求体，给 POST 带上 URL 参数，可以用 GET 请求新增数据，POST 请求查询数据，实际上也是完全可行的。
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDM1ZjU3YjgzOTI3ZTE2MzUyZTFiMzRiY2MxMDkwODJfczF6VE9KWjBZZWQ1OUtJQzRXelkwMWR6cnRNdWdHcTVfVG9rZW46Ym94Y25LaUVMa3VlMVRHZjVCQ3poc2dBc01nXzE2ODU5Mzk0NDY6MTY4NTk0MzA0Nl9WNA)
+![img](../../public/acb2d335-395f-42b4-81b8-ffc191c1306e.png)
 
 ### 1.2 请求头
 
@@ -87,7 +87,7 @@
 >
 > 响应报文结构： 响应行， 响应头，响应空行， 响应体
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=YjM2ZGU5MjU3NWNjMDBkMWIzZGIwNmYzOGU1MDY4NGJfNVBMM3dacDlhUzNyRFpiZ3E0NWNKekZ1bFY1Q081blFfVG9rZW46Ym94Y25VRmM0VWpQMjNtYWtTZDU0cHM1ZGZkXzE2ODU5Mzk0NDY6MTY4NTk0MzA0Nl9WNA)
+![img](../../public/bac2037d-4f6e-404c-8524-3ba46c04ddfa.png)
 
 ### 2.1 响应行
 
@@ -99,7 +99,7 @@
 - **状态码**， 以三位数字形式描述服务器对请求的处理结果，比如 200 表示成功
 - **消息短语**，以文本形式描述服务器对请求的处理结果 比如 OK 表示成功
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=YjNjOTRiM2ViMmY1N2I3ZDMwYzM2NDA2NzZhNDliY2RfdmlpMVlMczQzZG42M0ZETDNjWDZMSXBDN0o2OVhwS29fVG9rZW46Ym94Y25qN2NUZDdvdEdYRm9jNk1HTXVXcm9oXzE2ODU5Mzk0NDY6MTY4NTk0MzA0Nl9WNA)
+![img](../../public/3fa62183-575a-40fc-9d9d-1c605486b627.png)
 
 #### 2.1.1 HTTP 有哪些常见的状态码
 
@@ -116,7 +116,7 @@
 
 > 在原始的京东官网地址，就是重定向到最新的地址上来的；
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=ZTc4MWY1OGY1MzE2Y2Y2MzM1YWI4YWIxYjgzOGEyMjlfY1pheTViT0YyMzNHZjVKVFNadWE3cHFCbjdSV3dnVHRfVG9rZW46Ym94Y25RR0RXZ3NFdXhvZlVxaHVVZUtkZDNkXzE2ODU5Mzk0NDY6MTY4NTk0MzA0Nl9WNA)
+![img](../../public/58c24573-a797-4036-8ab0-13d3630fd48a.png)
 
 - 302 Found： 临时重定向，表示请求的资源已被分配了新的 URL，新的 URL 会在响应报文中的 Location 字段中返回，浏览器将会自动使用新的 URL 发出新的请求。
 - 304 Not Modified: 代表上次的文档已经被缓存了，还可以继续使用，即访问缓存；
@@ -158,7 +158,7 @@
 
 > 客户端发送一系列请求给服务器，如果服务器与客户端对每个请求/响应对都经过一个单独的 TCP 连接发送，则称为**非持续连接**，也称为短连接；如果经过相同的 TCP 连接发送，则称为**持续连接**，也称为长连接。
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=YzZiMGI1MzE3MjBjYTRmYzcyMzYzNzg3NjA4NTk2ZDZfaGhzenZhaGQwQUplMktzbk1zZThWeTRJMWt5eEplczRfVG9rZW46Ym94Y25CNnc3T3ZocUZPWjRoa1p2c0VqTjBnXzE2ODU5Mzk0NDY6MTY4NTk0MzA0Nl9WNA)
+![img](../../public/ce10b2fe-bdfc-4288-98fb-7d5415c099df.png)
 
 - 非持久连接：
   - 缺点：
@@ -188,11 +188,11 @@ Ps: 持久连接不是永久连接，一般在一个可配置的超时间隔之�
 >
 > 由于服务器端时间和客户端时间可能不同步，存在偏差，这也就是导致了使用 Expires 可能会存在时间误差，因此**一般更推荐使用 Cache-Control 来实现强缓存**。
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=NjI3YTk3ZDYyYzhlMzExNzM2OGZjMmE2OGE3MzE2OTlfc1BnWE9VZ1c4UjI1MEdtbnZhVE90eFhIcjdqaWs4dHNfVG9rZW46Ym94Y25xVzJCbW5panNSdGxMUXZPalB0M3FlXzE2ODU5Mzk0NDY6MTY4NTk0MzA0Nl9WNA)
+![img](../../public/2792c0f7-3887-43c6-bbf0-b6b4816c5d34.png)
 
 以 Cache-Control 为例，强缓存的具体的实现流程如下：
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=ZGMwNGIxYzlkNWY0ZTAwMjlkZWZlYzc2NmJhMDRhNDdfTzVvMFY4cEJETnB5MG9tanVPY2U0VDlIbThvS2VNZzNfVG9rZW46Ym94Y25CdHlmN2J1VUVzMm9oZnhMNUZ2MnJkXzE2ODU5Mzk0NDY6MTY4NTk0MzA0Nl9WNA)
+![img](../../public/87cfee4a-455f-4573-9c83-d361e073fb51.png)
 
 1. 当浏览器第一次请求访问服务器数据时，服务器会返回一个**Cache-Control**的响应头信息，以表示本地缓存的信息，对应的值有：
    1. **max-age: 表示缓存将于指定的毫秒值之后过期，比如： Cache-Control: max-age: 10000， 表示资源将于 10 秒之后过期；**
@@ -215,13 +215,13 @@ Ps: 持久连接不是永久连接，一般在一个可配置的超时间隔之�
 > - 如果资源没有更新，那么服务器返回 **304** 状态码，表明缓存仍然可用，而不需要再次发送资源，减少了服务器的数据传输压力，并更新缓存时间。
 > - 如果数据有更新，服务器返回 200 状态码，新资源存放在请求体中。
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=ODRlZDliYmUxYjM0NzA5MzE1ZDE3YmQ3ODc3MzViYzZfMm9OVVBxMXpydHN6a3Z5Vng1aDRTRlNhN0dlMXBXR2VfVG9rZW46Ym94Y245OEMzTWl5aFhEM01ZMWhhMWFXOHlnXzE2ODU5Mzk0NDY6MTY4NTk0MzA0Nl9WNA)
+![img](../../public/f26d170b-3716-4fb8-821b-a250b771b736.png)
 
 协商缓存可以基于以下两种方式来实现：
 
 **第一种（HTTP/1.0 规范）**：请求头部中的 `If-Modified-Since` 字段与响应头部中的 `Last-Modified` 字段：
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=ODQwOThjN2Q1NjA1OGZlM2M3MzU3NWZkYTZkOTVmZjhfY2t0MHlydDJwN3NXcDdyQnBRWTdFWWpZVlhOQ2dQYTdfVG9rZW46Ym94Y252WGdyYTBrSzFSSW1tcUNINjY1MnpQXzE2ODU5Mzk0NDY6MTY4NTk0MzA0Nl9WNA)
+![img](../../public/1f574c14-230c-4f09-8e0f-e4103c9ed784.png)
 
 - `Last-Modified`：标示这个响应资源的最后修改时间。第一次请求资源后，服务器将在响应头中带上此信息。
 - `If-Modified-Since`：当资源过期了，浏览器再次发起请求的时候带上 Last-Modified 的时间（放在请求头 If-Modified-Since 中），服务器将此时间与被请求资源的最后修改时间进行对比，
@@ -233,7 +233,7 @@ Ps: 持久连接不是永久连接，一般在一个可配置的超时间隔之�
 
 **第二种（HTTP/1.1 规范）**：请求头部中的 `If-None-Match` 字段与响应头部中的 `ETag` 字段：
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=M2VkYTc5OTZlZGM3YTVjY2RhYTI5ZGU4ZjhmYTcxNjBfdUtQUGhGWDltV24xaXlmak53T3JsNEFQbnE5OEZCRHlfVG9rZW46Ym94Y25pZ3psa2kyQ292c3UyZXRGUnlHRlViXzE2ODU5Mzk0NDY6MTY4NTk0MzA0Nl9WNA)
+![img](../../public/885ea472-d6f2-4d6f-ae5b-b9aa704b00e0.png)
 
 - `Etag`：唯一标识响应资源，是一个 hash 值；第一次请求资源后，服务器将在响应头中带上此信息。
 - `If-None-Match`：当资源过期了，浏览器再次向服务器发起请求时，会将请求头 If-None-Match 值设置为 Etag 中的值。服务器将此值与资源的 hash 值进行比对，
@@ -259,7 +259,7 @@ HTTP 是一种**无状态**协议，即其**本身不会记忆请求和响应之
 
 **为了实现保持状态的功能，这就出现了 Cookie**。Cookie （服务器给的凭证）类似于我们逛商场时的会员卡（商家给的凭证），记录着我们的身份信息，只要出示了会员卡，商场工作人员就能确定我们的身份。同样的，只要给服务器发送报文时带上了 Cookie，他就知道我们是谁了。
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDJmMTk0ZTJlYjkzOTAzMWU4ZThmMzlmZjE2MzdhY2NfTmpUMng0NEZYMlJhOUlxSFFRWE5NZlZmQXNNRm1TQnhfVG9rZW46Ym94Y256NWw2bmcxaFlLaUd1cFNxa1ltMUlnXzE2ODU5Mzk0NDY6MTY4NTk0MzA0Nl9WNA)
+![img](../../public/3ca65999-569f-468a-b794-a0d91de44241.png)
 
 Cookie 中可以包含任意信息，最常见的是包含一个服务器为了进行跟踪而产生的**独特的识别码**。
 
@@ -267,7 +267,7 @@ Cookie 中可以包含任意信息，最常见的是包含一个服务器为了�
 
 张三在发出第一次请求后，服务器将其状态信息记录下来，比如他的名字、年龄、地址、购物历史等，并通过响应头 `Set-Cookie `字段，给予其一个 id=12345 的独特识别码作为 Cookie，那么其再次向服务器发出请求时，浏览器会自动在请求报文中的 `Cookie` 字段中带上 id=12345，服务器就可以通过这个查询到张三的具体信息，从而实现了保持状态的功能。
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=MDRjMDc0ZTRiZjA0YTU2YzUxZTdjNjJhNzRmYTIzMzhfbjQzd280dE8xd2hlWEszaXBDODg3djc2aUlob2w3UzZfVG9rZW46Ym94Y25ndHdtbGhlR3ViQVlqekhnWW9IbG5IXzE2ODU5Mzk0NDY6MTY4NTk0MzA0Nl9WNA)
+![img](../../public/06d7605c-de2c-452c-9b8f-c9d89f9a16c3.png)
 
 **Cookie 属性：**
 
@@ -348,7 +348,7 @@ Cookie 的缺点是如果传递的状态信息较多，使得包过大，将会�
 > 1. 客户端和服务端同时维护一张**头信息表**，高频出现的字段会存入此表，生成一个索引号，发送报文时直接使用索引号替代字段。另外，索引表中不存在的字段使用哈夫曼编码**压缩；**
 > 2. **同时多个请求中，如果请求相同，则后序请求只需要发送差异的部分，重复的部分无需再发送**。
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=MWEzODkzMjA0OWU2NzQ2NDA2NWE5YWJiYjc0NjllNThfdHVqek9tTFUyZWkzanBYOUhFbEU1bHRKTXdGeFp2SHpfVG9rZW46Ym94Y25iTXluOUJkWWFWSDNQTnMxcEVnekhiXzE2ODU5Mzk0NDY6MTY4NTk0MzA0Nl9WNA)
+![img](../../public/ff983d7d-b177-4cb9-b614-7df0d23edf46.png)
 
 #### 2. 二进制帧
 
@@ -380,7 +380,7 @@ Cookie 的缺点是如果传递的状态信息较多，使得包过大，将会�
 
 **ps： HTTP/2 中的服务端推送，只能推送静态资源，不能推送自定义的内容。**
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=ZTliMWY5ZmY3YTg0YjI0NWQ5YWU3MThhMjI1MWVhMDRfTWkwZkVqdHFMRHFzU1NGNlRNWlZVYmw2M2pSRnhwQ3BfVG9rZW46Ym94Y25EMzhCZUV0eVFEOGZUU3FVMDBoNWVlXzE2ODU5Mzk0NDY6MTY4NTk0MzA0Nl9WNA)
+![img](../../public/f75fc5b7-d0a6-40cf-8c54-cc0c9bc51527.png)
 
 ### 6.4 HTTP/3
 
@@ -396,7 +396,7 @@ TCP 是可靠的、面向字节流的协议。HTTP/2 的多个请求虽然可以
 
 这时候有的小伙伴可能会问了，HTTP/3 底层不采用 TCP，那怎么保证可靠传输呢？答案就是 HTTP/3 在应用层自己重新实现了可靠性机制。也就是说，**HTTP/3 将原先 TCP 协议提供的部分功能上移至 QUIC，而且进行了改进。**
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=N2FhNzIzMzk0MzVkMTdiYTk2ZTA2NTY3ZTEwOGFkNmJfZU9ZZGRmOXFlYUZ4Q0JpWHRHTzZkVUJ2cDlZOHBObDlfVG9rZW46Ym94Y25reHBRMWpVcmFNajhMMnpPQU9aaWdXXzE2ODU5Mzk0NDY6MTY4NTk0MzA0Nl9WNA)
+![img](../../public/d6e2e0b9-1562-487d-b135-73df302bc571.png)
 
 #### 2. **优化重传机制**
 
@@ -413,7 +413,7 @@ TCP 采用**序号+确认号+超时重传**机制来保证消息的可靠性，�
 
 因而 TCP 的重传超时时间计算不准确，如果计算偏大，则效率慢，很久才会重传，而如果计算偏小，则可能确认报文已经在路上了，但却重传了！
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=NjBlMWY5ZWRjMjAwZjBhY2I3YWUyZThiZDlhMzBmMDFfVGlWRlVPcFhjaXFiVG4zWHJrS2hTTDJGV1B4SXA3STNfVG9rZW46Ym94Y25YM2pCajRxRmhTVWlMSVZ6VlpWb0tjXzE2ODU5Mzk0NDY6MTY4NTk0MzA0Nl9WNA)
+![img](../../public/00c31965-5eea-4257-9a0c-9bb691233175.png)
 
 QUIC 是如何解决此问题呢？其定义了一个**递增**的序列号（不再叫 Seq，而是 Packet Number），每个序列号的包只发送一次，**即使重传相同的包，其序列号也不一样**。
 
@@ -421,7 +421,7 @@ QUIC 是如何解决此问题呢？其定义了一个**递增**的序列号（�
 
 客户端发送一个序号为 N 的包，然后超时了，于是重新发送一个相同的包，但序号不再是 N，而是 N+1；那么如果返回的确认包 ACK 为 N+1，就是对原始报文的响应，如果 ACK 为 N+2，就是对重传报文的响应，因而采样时间计算相对更加准确！
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=NGJmY2ZhNDYwZjBhYjNlZTUyM2VkZGEwMDBjMzM0MzVfZ25hNTFJVmJNZllCZzZSN2dkbTJFUmk0YXB2bHBOVG9fVG9rZW46Ym94Y240TGMzVmtwamZaRUhsWlQ3RGROOXRlXzE2ODU5Mzk0NDY6MTY4NTk0MzA0Nl9WNA)
+![img](../../public/fc2b2c73-3927-471a-af8f-03cc814b0c9f.png)
 
 那此时怎么知道包 N 和包 N+1 是同一个包呢？**QUIC 定义了一个** **Offset** **概念**。发送的数据有个偏移量 Offset，可以通过 Offset 知道数据目前发送到了哪里，因而如果某个 Offset 的包没有收到确认，就重发。
 
@@ -433,11 +433,11 @@ QUIC 是如何解决此问题呢？其定义了一个**递增**的序列号（�
 
 而 QUIC 不采用`四元组`的方式标识连接，而是以一个 **64 位的随机数作为 ID** 来标识，通过此连接 ID 标记通信的两端，之后即使网络发生变化，IP 或端口变了，但只要 ID 不变，则无需重连，只需要复用原先连接即可，时延低，减少了用户的卡顿感，实现连接迁移。
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=Yjc1YjRiZDkzODg0OTUzNTgzNTMyNjI2ODllZDNlNzVfRm5lMU5yM05ubnVEUmhVRjBvTGJCcUZFYTNvTnZpM0lfVG9rZW46Ym94Y25QVzlxRnBLdEhlRVJEY3l1RnI5Uk1kXzE2ODU5Mzk0NDY6MTY4NTk0MzA0Nl9WNA)
+![img](../../public/91b7e962-4748-4f5f-9e97-5f551f040a87.png)
 
 ### 6.5 总结
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=YzNhYTQ3OTU5MTQxMWY1NTZlOGZiMTM3YTVhMmQ3MWJfcGlXakVXcjRJUDQ1SGpoeGlaWWVyNVVIN3BoNlJQVmlfVG9rZW46Ym94Y24xTnlrWEE5N3kwTExlNHB0dmNxbTdlXzE2ODU5Mzk0NDY6MTY4NTk0MzA0Nl9WNA)
+![img](../../public/b6e66b3f-216a-45a6-b6c4-e60ca8dd1e03.png)
 
 参考博客： [前后端开发必会的 HTTP 协议“十全大补丸”（万字长文）](https://www.nowcoder.com/discuss/459411847272255488?sourceSSR=search)
 

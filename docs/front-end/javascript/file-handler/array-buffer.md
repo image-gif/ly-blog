@@ -1,6 +1,6 @@
 # ArrayBuffer
+
 > 转载：https://zh.javascript.info/arraybuffer-binary-arrays
->
 
 在 Web 开发中，当我们处理文件时（创建，上传，下载），经常会遇到二进制数据。另一个典型的应用场景是图像处理。
 
@@ -46,7 +46,7 @@ alert(buffer.byteLength); // 16
 
 因此，一个 16 字节 `ArrayBuffer` 中的二进制数据可以解释为 16 个“小数字”，或 8 个更大的数字（每个数字 2 个字节），或 4 个更大的数字（每个数字 4 个字节），或 2 个高精度的浮点数（每个数字 8 个字节）。
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDE0ZDllNmQ3MjM4M2JmZDQwNjU0ZWJmNjI3NjMzY2FfSDJ3UUtzQWFBRlFmWlRaUG5TczdUMUJGUGJXRURjN1JfVG9rZW46QTVsVGJuNVZlb0N5bDh4RUdVRGNab1d3blhjXzE2ODU5NDcyNzI6MTY4NTk1MDg3Ml9WNA)
+![img](../../../public/arraybuffer.png)
 
 `ArrayBuffer` 是核心对象，是所有的基础，是原始的二进制数据。
 
@@ -249,7 +249,7 @@ dataView.setUint32(0, 0); // 将 4 个字节的数字设为 0，即将所有字�
 
 这是一份备忘单：
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=NzY5ZjBjNmZlODgwM2U3OTNkMzM3Y2M2ZjM1YjAxYjJfQzA0MDd3ZmU5dUs2NWpQeFhVZ2ZOeFY0cjREZE1TbjZfVG9rZW46UGlBZGIydzVTb1ZwNll4TGg4N2N2TEJ2bmllXzE2ODU5NDcyNzI6MTY4NTk1MDg3Ml9WNA)
+![img](../../../public/arraybuffer002.png)
 
 **实现一个类型化数组拼接**
 

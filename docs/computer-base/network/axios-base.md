@@ -175,9 +175,9 @@ setTimeout(() => {
 
 大家感兴趣的话也可以把上面的代码复制粘贴到浏览器的控制台运行一下，上面代码的运行结果如下所示：
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=NjNlNGY5MmZlOWQxZWM5NmMzNDhiNjQ4YjE0Y2Y0NDZfUGtScGlVeHV4UmxGeVRvbGJPMDllNE1zZVliaTlOZ0hfVG9rZW46QTNOWGIzRVBDb3dFUjl4T1hZR2NzS1RNbjZlXzE2ODU5NDQzNjc6MTY4NTk0Nzk2N19WNA)
+![img](../../public/13c429f3-88c8-4b1f-bada-2e5b480a4052.png)
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=YThiYjFjNGNiMTAzODY5N2JhOGIzNmYyZjNkNGZjODhfRFpjSllWUDNzcVAya3l3VDI5RGREa1NtMXlkODlld3JfVG9rZW46SVBab2IzVVAzb0pnNXJ4UmZ4YWNEUHA1blZkXzE2ODU5NDQzNjc6MTY4NTk0Nzk2N19WNA)
+![img](../../public/5d5c7c59-71de-4f8d-a5cd-f16b546de81a.png)
 
 可以看到控制台的 **Console** 的输出是：**DOMException: The user aborted a request.**对应的 **Network** 展示的是一个取消状态的请求。这说明我们刚才发送的请求被终止取消掉了。**能够在一些特定的情况下主动地取消相关的请求对我们应用来说是很重要的，这能够减少我们用户的流量使用以及我们应用的内存使用。**
 
@@ -191,19 +191,19 @@ setTimeout(() => {
 
 我们上面只是简单地使用了 `signal` 对象，这个对象是 `AbortSignal` 类的实例，对于 `AbortSignal` 我们下面会做深入的讲解，这里暂时只需要知道 `signal` 可以作为一个信号对象传递给 `fetch` 方法，可以用来终止 `fetch` 的继续进行。另外，在不同的浏览器中打印的结果可能略有不同，这个跟不同浏览器的内部实现有关系。比如在 **Firefox** 中的结果如下：
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=MjhiNzQ3NzdkODc0NGFkMTVjZjc4YWIyYWZjZGQ2OTNfSXZUUG1UVnFOTU9kT3VhQndpb3NzczZmcXBrV1lsRWxfVG9rZW46VWpyOWJNeW5ab2xRaGN4aTJRVGNkQmw1bmJkXzE2ODU5NDQzNjc6MTY4NTk0Nzk2N19WNA)
+![img](../../public/d76347a8-021a-4554-aa70-1142dfcd836d.png)
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=NzY0YmZmNjlmYmFmMGFkMWJkYWFkZjdiMjFhYTM1OGVfQTZFdjJqSW9qczJ3aHBqQWoza3RhbkxWVnVEbGFqOEhfVG9rZW46RXhmd2JvODU5bzJVQk14eUlCcGM2YnY5bkNmXzE2ODU5NDQzNjc6MTY4NTk0Nzk2N19WNA)
+![img](../../public/69659e8c-83b7-4222-b66c-4275b8a612fd.png)
 
 在 **Safari** 中的结果如下：
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjI4YmIzMmI0NDI2Y2M1NmI1YzgzMGFiZmJmMmIwYzlfcW9HbTg0bWV2WU1SbVhqelB2S2xBTXhpdW9CTEhaOG9fVG9rZW46RXZXTGJ4VURRb29LaXR4QmRERWNuRHgxbmdlXzE2ODU5NDQzNjc6MTY4NTk0Nzk2N19WNA)
+![img](../../public/0e359087-672e-43ff-8d92-5200781bd669.png)
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=NGRhMWQ2YmFlMDU2NzY2YTljOTdiZjBkOWY3NmQ5OWFfNXV4aEFtc1o2SUp5VFFYakE0SjdiY3ZyWVNFMzhTUXRfVG9rZW46VXJ5ZGJvd1Fpbzg2Zzl4dFA3YmNwaG4yblJiXzE2ODU5NDQzNjc6MTY4NTk0Nzk2N19WNA)
+![img](../../public/1589d6fa-494d-48d4-b0cb-1c7f81feb322.png)
 
 当然如果我们没有终止 `fetch` 请求的话，控制台的打印将会是：
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=Njg1MGY1MjczZTg0NDhhMDg0YjA1NzcxOWFiYzQ3MjdfTzhZQTJVTWRoRVZtSlB6MzRVWXFHcWZQMUJZeG9wdEZfVG9rZW46VjdlMGJOMlZOb3pvTjR4VFQ5VGNtOFlWbjhjXzE2ODU5NDQzNjc6MTY4NTk0Nzk2N19WNA)
+![img](../../public/802d0ce7-9dc0-417a-a1cf-5dcc48e69e60.png)
 
 image.png
 
@@ -235,9 +235,9 @@ ac.abort();
 
 运行代码后可以在控制台看到如下结果：
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=NWRkZTdkMzU3ZGRmMzk1MDI2ZmM3YzJiZjM0YmU2MTNfZG5yVXRmUVdzbTZqb21zdjhrU3o2R2JoN2p6WEJuSFFfVG9rZW46UGFzNmJkYk42bzdITjF4a1lmUmNLMk5QblFlXzE2ODU5NDQzNjc6MTY4NTk0Nzk2N19WNA)
+![img](../../public/b7e2e3b2-52f8-4a09-ba14-0575f3788849.png)
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=MTM3ODdjMmQ2MGE0MjZlMTcyNDY3ZTMyY2NjOGY0MDFfWmlrellteFU4Qmk1UUVIRlNEZ2ZHYm56WGIxd1JKMHBfVG9rZW46RmhkQWJHelNlb3RBb2l4TTVUUGNrZVl4bmlkXzE2ODU5NDQzNjc6MTY4NTk0Nzk2N19WNA)
+![img](../../public/c81bb649-e272-476e-8ca7-2c2b2227406a.png)
 
 如果我们需要同时对多个请求进行终止操作的的话，使用上面这种方式非常简单方便。
 
@@ -245,7 +245,7 @@ ac.abort();
 
 `AbortController` 的相关属性和方法
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=MWM4ZGQxZDA0NWZkNmIzZjUyOWI1NDgxZmJhNGJjZTFfU3g3cEt0a2xlYW13akNjYXhhdXlHNGJmc2ZPelNlQW1fVG9rZW46R1BydmJVdU1Mb2xDeE54M0pveGM0aVVEblNjXzE2ODU5NDQzNjc6MTY4NTk0Nzk2N19WNA)
+![img](../../public/7eac87a9-79b9-4bd4-a3c6-803edfc7419a.png)
 
 image.png
 
@@ -271,13 +271,13 @@ console.warn(abortedAS);
 
 运行代码，控制台的输出结果如下：
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=M2ZhNWEyOWYxOWYxNDliNjMxZTIzYjI3YTM4MWY4ZTdfRTR1VUNUOVNkV3FKWmV0NjNOQUZBdlJEblFCemViU1pfVG9rZW46QUxReWJZOFJLb0NHcXJ4VEZKUmNCc0l2bk5nXzE2ODU5NDQzNjc6MTY4NTk0Nzk2N19WNA)
+![img](../../public/198670a6-aa88-4395-8e89-3a2ed922603b.png)
 
 image.png
 
 对应的请求甚至都没有发送出去
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=NTBlNmIxODFmMDNiOTM2ZjkxYzBhNjE4MzEwMzE2NTRfRlBzaHluR1RwWGxSZUo5RFRlVGVZMnczcmhrTmttR2RfVG9rZW46VllpNWJCcWpyb01pZWJ4OUFTd2NiWHVXbjRmXzE2ODU5NDQzNjc6MTY4NTk0Nzk2N19WNA)
+![img](../../public/5dd7e4da-dc3c-43c0-9143-b50326778a17.png)
 
 image.png
 
@@ -294,7 +294,7 @@ const abortedAS = AbortSignal.abort({
 
 那么输出的结果就如下图所示：
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=OTgwMWM2MjFkODVhMWExZjU3OTdjZjEwZGFmOTAyMzdfV0hoWWNXd3VCZ3Y1WHFpTXpsVTg0WW9teUlMTk5BdTBfVG9rZW46V1hZbGJUZHQ5b2RXeGd4VEhjcWNQb0ZJblJiXzE2ODU5NDQzNjc6MTY4NTk0Nzk2N19WNA)
+![img](../../public/ab8cd819-f9a0-4656-9bb1-931d0df78e0e.png)
 
 image.png
 
@@ -313,7 +313,7 @@ console.log(timeoutAS);
 
 代码的运行结果如下：
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjhjODQ0OTExOTFjYzBhNjU4OGQxNTJkNWJjMThmMzFfcmlBb3k5MEtkS3h4N3RaYXhyQTlicW5YZDdhOFgwSGZfVG9rZW46VmRpdmJqeFFKb2xsSnh4amJvUGNvVTBHblhnXzE2ODU5NDQzNjc6MTY4NTk0Nzk2N19WNA)
+![img](../../public/6cbdc885-b312-4acf-b171-c97069baf59e.png)
 
 image.png
 
@@ -342,7 +342,7 @@ signal.throwIfAborted();
 
 运行后在控制台的输出如下：
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=MTFhZWY4MWYxNGZmNDU0MGE3ZDcxOWM1MzMxNjBlMTJfcGFkOEtlbHBZNmVqSEpuaFR4STdLY2Y1bXc1MkFIZndfVG9rZW46SFMzZmJZNUVNb0tjOTl4SVJKSGNSa0d6bkpiXzE2ODU5NDQzNjc6MTY4NTk0Nzk2N19WNA)
+![img](../../public/63b5a1c4-eec0-4d39-bb0a-c73cb039d65d.png)
 
 image.png
 
@@ -369,7 +369,7 @@ setTimeout(() => {
 
 运行后在控制台的输出如下：
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=YTg0NjBmNDY0NmFjNmZmZmJjMTJkYmNlMDU3N2IzNjFfcTBnTlFwQ09YeWl3TEtDVnJ3aTRPd1NmaENlQXk1T21fVG9rZW46RjVLMmJ6YllSbzZUcXB4OFcxMmM5TEtRbk9lXzE2ODU5NDQzNjc6MTY4NTk0Nzk2N19WNA)
+![img](../../public/122240e8-0171-4ef5-934c-1474635bf2d4.png)
 
 image.png
 
@@ -420,21 +420,21 @@ setTimeout(() => {
 
 当我们下面的 `setTimeout` 的时间设置为 100 毫秒的时候，上面的 `Promise` 总是拒绝的状态，所以会看到控制台的打印结果如下：
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=NDU0YzYwMzNhOWM3NzRmODg5NWM0MmEzNDk4MTdmNGZfWlZ1TDNpWTZYQ2ZqTmVmY1RsVzRmeUFLNVZCRnhkOThfVG9rZW46SUJSUmJyZEVGb3FDZGd4ZGJQNWNUcWt0blNkXzE2ODU5NDQzNjc6MTY4NTk0Nzk2N19WNA)
+![img](../../public/846487dd-6d62-4968-9003-b5438df82771.png)
 
 image.png
 
 如果我们把这个时间修改为**2000 毫秒**的话，那么控制台输出的结果可能是 **ok** 也可能是一个 **not good** 的异常捕获。
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=NDZiNzA3YmNhMjdiOTdkNjAzN2E4MzMyMjY5NTI5M2FfMVlCOTltWm15NUlVOE5RTEhrWElndlZRcTNRTHdzUnNfVG9rZW46UGpma2JpOXozbzNqY3p4T3JxQmN3eU1GblhiXzE2ODU5NDQzNjc6MTY4NTk0Nzk2N19WNA)
+![img](../../public/53e22a47-9a35-4272-8daf-0447a268da69.png)
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=YWE4ZTAxMTcwODZmNDE1ODlhZDZmNDVlODcwMmE1MzBfYkY0NXFWUDVDekw3VlR6bjBKdmRNOXVuRW02UHl2c0RfVG9rZW46QzhCUWJVWXpCb252VFB4c0dKMGNrN2tibjNlXzE2ODU5NDQzNjc6MTY4NTk0Nzk2N19WNA)
+![img](../../public/09cb2dff-bff1-4b41-bdd5-53b1aaa59d38.png)
 
 有同学看到这里可能会说，好像不需要 `signal` 也可以实现主动取消的 `Promise`，我可以使用一个普通的 `EventTarget` 结合 `CustomEvent` 也可以实现类似的效果。当然我们也可以这样做，但是一般情况下我们的异步操作是包含网络请求的，如果网络请求使用的是 `fetch` 方法的话，那么就必须使用 `AbortSignal` 类型的实例 `signal` 进行信号的传递；因为 `fetch` 方法内部会根据 `signal` 的状态来判断到底需不需要终止正在进行的请求。
 
 `AbortSignal` 的相关属性和方法：
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=ODg3NDU4ZWY2YzI3OWQ3ZTBkYjUwYmI4ZDYzZGYyMTJfVUdFRDVZTGxQc0JnUHV4TVdwc3N0enhVc0FTUU5MTU1fVG9rZW46TktYb2JkeEt1b05sbnZ4cnJGeWNtQzdqbm9kXzE2ODU5NDQzNjc6MTY4NTk0Nzk2N19WNA)
+![img](../../public/8aa38025-4594-47d1-9325-85c32441a997.png)
 
 image.png
 
@@ -494,8 +494,6 @@ addEventListener(type, listener, options);
 ```
 
 `addEventListener` 的第三个参数可以是一个 `options` 对象，这个对象可以让我们传递一个 `signal` 对象用来作为事件取消的信号对象。就像上面我们使用 `signal` 对象来取消 `fetch` 请求那样。
-
-image.png
 
 从上面的兼容性来说，这个属性的兼容性还是可以的；目前只有 **Opera Android** 和 **Node.js** 暂时还不支持，如果想要使用这个新的属性，需要针对这两个平台和运行环境做一下兼容处理就好了。
 
@@ -564,7 +562,7 @@ ac.abort();
 
 运行代码可以看到终端的输出如下：
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=OWY1ZWVlNGI2MDIzNGVhNGZiNGZiNjRiNjcxODIxOTVfMlpzdHBnUE15WEZkREFWREUyakdyUlBGM2J1VW1leUpfVG9rZW46RlBzVmJNNFMwb3NPb0l4WjBSM2NnNFQ3bmhnXzE2ODU5NDQzNjc6MTY4NTk0Nzk2N19WNA)
+![img](../../public/fc74affc-6ed0-479d-b8c2-dae59b0b2f4b.png)
 
 image.png
 

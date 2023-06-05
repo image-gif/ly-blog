@@ -22,7 +22,7 @@ npx patch-package [依赖文件名]
 
 **效果：（执行完命令后，会生成对应的补丁文件）**
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=MTJiYTBhOTMzODY4MzhiZTg1YjVkYTVkOGQ3ZjNlMGRfN1JLTDRJd2hpeDZUelA3TTJhMnlXRlpBUzFtY1JsWDBfVG9rZW46Ym94Y242VThPMUpWakd6eHBwWUJjZUExWHpiXzE2ODU5MzgwOTc6MTY4NTk0MTY5N19WNA)
+![img](../public/patches.jpg)
 
 **实现项目成员也可以使用修改之后的第三方插件**
 
@@ -127,7 +127,7 @@ vue-cli-service serve
 
 > 使用这种方式的原因主要是因为上面的方法使用只是暂时的，来看下网上的说法：
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=NjJkYWI5YzZhNDI3ODhiMzQ5ZTA3YTZjMGIwNzVmZWFfUndjWkJnY3M3VUtZTDhodlZWbUFkdlhBc3ljd202UVFfVG9rZW46Sm55YmJKTFFkb0VmZjZ4YVJPZmNkSUlPbk1mXzE2ODU5MzgwOTc6MTY4NTk0MTY5N19WNA)
+![img](../public/8fdbca05-5c4a-4f56-b675-04e6206cdf74.png)
 
 所以这里，也是比较推荐使用第二种方法，当然进行 node 版本切换，作为 windows 用户，我使用的还是 nvm；
 

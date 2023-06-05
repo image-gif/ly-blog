@@ -77,4 +77,4 @@ location *~ /IMAGE/ {
 > 4. 由上自下进行正则匹配, 如果命中立即返回.
 > 5. 如果正则匹配全部失败, 则返回普通匹配中存放的匹配.
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=ZmJiYjlhMjIyMjYyYjU4MGI3MTQ2M2Y1MGNmZGNlM2ZfM015bDgyN1pYWVRNc2F0VG5Xd1lhMHhNcmtRQUNaZTJfVG9rZW46Ym94Y25reVpPbmdOd3NCQ0JEN2JDUVlTcE1rXzE2ODU5MzY5Mzc6MTY4NTk0MDUzN19WNA)
+![img](../public/abc8d9f7-2773-4b59-b088-9ccddf4d664a.png)

@@ -428,7 +428,7 @@ MyPromise.race = function(promises) {
 
 ### 实现 then 方法的异步执行
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=YThhYmNlNWQ1ZjMzNTM2NDlhNTNmODZiMGQ3YTk3MmRfWnptbkxTSUZZemZhN2dHR0toZ253OWdRZGJzWHV4aE5fVG9rZW46Ym94Y25PY0JtWjhwTHA4bGdTWDUxNDZaTk1jXzE2ODU5NDY2NzI6MTY4NTk1MDI3Ml9WNA)
+![img](../../public/93198125-6d8f-418e-a546-2d852d5b7eb2.png)
 
 ### 实现一个 MyPromise demo
 
