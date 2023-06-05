@@ -28,7 +28,7 @@
    </p>
   ```
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=NmJlMmNmZTQ5YmMzY2FjNzA1ODk5MDRjMTJmM2EyODBfa1Y4U2JZVjdoeWdmeUVUanVPMERrejlCQ290U240VW5fVG9rZW46Ym94Y25veFJWQVZxbFNKaDd6ZktuQ1pRQkVkXzE2ODU5NDk3ODU6MTY4NTk1MzM4NV9WNA)
+![img](../../public/8c046519-19aa-4c91-8f9b-5641ceb72342.png)
 
 - 类选择器
   - > ` .类名 {样式声明 }` 等价为 `[class~=类名] {样式声明 }`
@@ -128,7 +128,7 @@
   <span>Span 3. Not in a div at all</span>
   ```
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDI4YmEwNzFhMTRlMTI3MGY2Zjc3ZmZjOWJiODdlMWRfTzg0ZVdYb0F5eGJ0czRHVXdDSXo2aEpOVmhNc2p3ajBfVG9rZW46Ym94Y25RQmpmVnpEZ1BDa1RCd3EwdkNSWUJmXzE2ODU5NDk3ODU6MTY4NTk1MzM4NV9WNA)
+![img](../../public/35f07ef2-88a2-4d23-8e48-c1119ff0019f.png)
 
 - 相邻兄弟选择器
 
@@ -143,7 +143,7 @@
   </ul>
   ```
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=MjliYTczZTI5MmYxMzBlMzU5NDQxMjJmMjBiMjkzMzdfQWlTS2MyZGxvTHJhS0Y1aDAxeEZHM0JWd3RjM0t2SThfVG9rZW46Ym94Y25TcEduT1E1eG03eGJWam80YTdKSVR5XzE2ODU5NDk3ODU6MTY4NTk1MzM4NV9WNA)
+![img](../../public/a6079798-2fff-41f2-8c6b-9c88e4738a38.png)
 
 - 通用兄弟选择器
 
@@ -166,7 +166,7 @@
     </p>
   ```
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=ZTEyNThmN2ZlNzFiMWYzN2QxY2QxMjM5ZTg4ZDE1ZmJfSEhoQjNjZ2RaaEJoeVVoekg5UzgxMUVaYTdtR1VxM0lfVG9rZW46Ym94Y25aSEFhR0JUeTY2OVFQQUU1bTc3bmJiXzE2ODU5NDk3ODU6MTY4NTk1MzM4NV9WNA)
+![img](../../public/0820fede-87c2-4ce7-bc1e-2f1ba29195af.png)
 
 ## 2. 优先级
 
@@ -198,7 +198,7 @@
 
 ## 3. 权重
 
-![img](https://r14ox2jzbq.feishu.cn/space/api/box/stream/download/asynccode/?code=MGU5YmRlM2JmZDg2ZGMxNWE4NzcyMDU1NTJkYTZmMWFfR051blhmZjFscWx1Y3Z1b3JNVzVJM1RvRllkNEhqaThfVG9rZW46Ym94Y252RFdING40OVF6R3RDRXZVZGd0M1lnXzE2ODU5NDk3ODU6MTY4NTk1MzM4NV9WNA)
+![img](../../public/9e63b64b-0cce-4194-9378-025eac881466.png)
 
 ## 4.关于 css 书写顺序进行一定的优化
 

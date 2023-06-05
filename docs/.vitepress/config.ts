@@ -14,9 +14,12 @@ export default defineConfig({
       {
         text: '前端',
         items: [
-          { text: 'HTML', link: '/front-end/html/index' },
+          { text: 'JavaScript', link: '/front-end/javascript/index' },
           { text: 'CSS', link: '/front-end/css/index' },
-          { text: 'JavaScript', link: '/front-end/javascript/index' }
+          { text: 'HTML', link: '/front-end/html/index' },
+          { text: 'Vue', link: '/front-end/framework/vue/index' },
+          { text: 'React', link: '/front-end/framework/react/index' },
+          { text: '前端工程化', link: '/front-end/front-project/module' }
         ]
       },
       {
@@ -34,13 +37,34 @@ export default defineConfig({
       '/front-end/html/': [
         {
           text: 'HTML',
-          items: [{ text: '概述', link: '/front-end/html/index' }]
+          items: [
+            { text: '概述', link: '/front-end/html/index' },
+            { text: 'canvas', link: '/front-end/html/canvas' },
+            {
+              text: '一个 html 文档的解析',
+              link: '/front-end/html/html-resolve'
+            }
+          ]
         }
       ],
       '/front-end/css/': [
         {
           text: 'CSS',
-          items: [{ text: '概述', link: '/front-end/css/index' }]
+          items: [
+            { text: '概述', link: '/front-end/css/index' },
+            { text: 'CSS选择器优先级', link: '/front-end/css/css-priority' },
+            { text: 'BFC块级格式化上下文', link: '/front-end/css/css-bfc' },
+            { text: 'flex布局', link: '/front-end/css/css-flex' },
+            { text: 'CSS页面布局', link: '/front-end/css/css-layout' },
+            { text: 'CSS-position', link: '/front-end/css/css-position' },
+            { text: 'CSS预处理器', link: '/front-end/css/css-pre-handle' },
+            { text: 'PostCss', link: '/front-end/css/post-css' },
+            { text: 'Bootstrap', link: '/front-end/css/css-bootstrap' },
+            {
+              text: 'requestAnimationFrame',
+              link: '/front-end/css/request-animation-frame'
+            }
+          ]
         }
       ],
       '/front-end/javascript/': [
@@ -94,7 +118,34 @@ export default defineConfig({
               ]
             }
           ]
+        },
+        {
+          text: 'TypeScript',
+          items: [{ text: '基础', link: '/front-end/javascript/typescript/index' }]
         }
+      ],
+      '/front-end/framework/vue/': [
+        { text: 'vue基础', link: '/front-end/framework/vue/index' },
+        {
+          text: '虚拟DOM和diff算法',
+          link: '/front-end/framework/vue/vnode-diff'
+        },
+        { text: 'vue数据绑定', link: '/front-end/framework/vue/data-bind' },
+        { text: '源码阅读', link: '/front-end/framework/vue/vue-source' }
+      ],
+      '/front-end/framework/react/': [
+        { text: 'react基础', link: '/front-end/framework/react/index' },
+        {
+          text: 'redux',
+          link: '/front-end/framework/react/redux'
+        }
+      ],
+      '/front-end/front-project/': [
+        { text: '模块化', link: '/front-end/front-project/module' },
+        { text: 'webpack', link: '/front-end/front-project/webpack' },
+        { text: 'rollup', link: '/front-end/front-project/rollup' },
+        { text: 'vite', link: '/front-end/front-project/vite' },
+        { text: 'Git', link: '/front-end/front-project/git' }
       ],
       '/computer-base/network/': [
         {
@@ -155,9 +206,57 @@ export default defineConfig({
                   link: '/project/file-upload/use-oss'
                 }
               ]
+            },
+            {
+              text: '性能',
+              items: [
+                { text: '虚拟列表', link: '/project/performance/virtual-list' },
+                {
+                  text: '浏览器渲染',
+                  link: '/project/performance/broswer-render'
+                },
+                {
+                  text: '性能优化方案',
+                  link: '/project/performance/performance-method'
+                }
+              ]
+            },
+            {
+              text: '浏览器',
+              items: [
+                { text: '事件循环', link: '/project/broswer/event-loop' },
+                {
+                  text: '浏览器重绘与回流',
+                  link: '/project/broswer/reflow-repaint'
+                },
+                { text: 'hash&history', link: '/project/broswer/hash-history' },
+                { text: '路由演变', link: '/project/broswer/router-progress' },
+                { text: '浏览器跨域', link: '/project/broswer/cors' },
+                { text: 'web安全', link: '/project/broswer/web-security' },
+                {
+                  text: '浏览器垃圾回收机制',
+                  link: '/project/broswer/broswer-gc'
+                }
+              ]
             }
           ]
         }
+      ],
+      '/essay/': [
+        { text: '概述', link: '/essay/index' },
+        { text: 'halo 一个开源网站构建工具', link: '/essay/halo' },
+        { text: '一些常用工具', link: '/essay/tools' },
+        { text: '前端监控系统', link: '/essay/monitor' },
+        {
+          text: 'PWA',
+          items: [
+            { text: '概述', link: '/essay/pwa/index' },
+            { text: 'Manifest', link: '/essay/pwa/manifest' },
+            { text: 'ServiceWorker', link: '/essay/pwa/service-worker' }
+          ]
+        },
+
+        { text: 'WebComponents', link: '/essay/web-components' }
       ]
     },
 
