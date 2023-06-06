@@ -39,6 +39,7 @@ export default defineConfig({
           text: 'HTML',
           items: [
             { text: '概述', link: '/front-end/html/index' },
+            { text: '基础知识', link: '/front-end/html/base' },
             { text: 'canvas', link: '/front-end/html/canvas' },
             {
               text: '一个 html 文档的解析',
@@ -121,7 +122,9 @@ export default defineConfig({
         },
         {
           text: 'TypeScript',
-          items: [{ text: '基础', link: '/front-end/javascript/typescript/index' }]
+          items: [
+            { text: '基础', link: '/front-end/javascript/typescript/index' }
+          ]
         }
       ],
       '/front-end/framework/vue/': [
