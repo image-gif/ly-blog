@@ -202,7 +202,7 @@ Grid 布局提供了六个属性来控制网格项沿网格容器的行或列的
 
 ![image.png](../../public/1665510157377-5432c0bc-d844-407b-9c59-2945281da5fc.png)
 
-（3）justify-self
+● justify-self
 
 可以使用 justify-self 属性来设置单元格内容的水平位置，此属性定义在网格项上，它接受四个可能得值。
 
@@ -362,19 +362,19 @@ repeat() 函数表示轨道列表的重复片段，允许以更紧凑的形式�
 
 ① 第一个参数用来指定行或列的重复模式重复的次数，有三种取值方式：
 
-●<number>：整数，确切的重复次数。
+●\<number\>：整数，确切的重复次数。
 
-●<auto-fill>：以网格项为准自动填充。
+●\<auto-fill\>：以网格项为准自动填充。
 
-●<auto-fit>：以网格容器为准自动填充。
+●\<auto-fit\>：以网格容器为准自动填充。
 
 ② 第二个参数用来指定行或列的重复模式重复的内容，有以下取值方式：
 
-●<length>：非负长度。
+●\<length\>：非负长度。
 
-●<percentage>：相对于列轨道中网格容器的内联大小的非负百分比，以及行轨道中网格容器的块长宽。
+●\<percentage\>：相对于列轨道中网格容器的内联大小的非负百分比，以及行轨道中网格容器的块长宽。
 
-●<flex>：单位为 fr 的非负长度，指定轨道弹性布局的系数值。
+●\<flex\>：单位为 fr 的非负长度，指定轨道弹性布局的系数值。
 
 ●max-content：表示网格的轨道长度自适应内容最大的那个单元格。
 
@@ -497,203 +497,3 @@ fit-content() 函数的操作类似于 minmax() 函数。 不同之处在于，�
 例如：
 
 这使得第二个网格项从第一行开始，跨越三个网格线，在第 4 行结束。使用 grid-row-start 和 grid-row-end 属性，可以有效地控制网格项的垂直起始位置及其在网格中的高度。
-
-结果如下：
-
-![image.png](../../public/1665550445030-98cf165c-6f25-4b42-a436-06cd416de6d2.png)
-
-（5）其他
-
-上面的四个属性使用特定的网格线来确定网格项在网格内的位置，它们的属性值有以下几种：
-
-●<line>：可以是一个数字来指代相应编号的网格线，也可使用名称指代相应命名的网格线；
-
-●span <number>：网格项将跨越指定数量的网格轨道；
-
-●span <name>：网格项将跨越一些轨道 ，直到遇到指定命名的网格线；
-
-●auto：自动布局，或者自动跨越，或者跨越一个默认的轨道。
-
-下面来看一个例子：
-
-这里使用 span 来表示第一个单元格跨越了 2 个网格。
-
-结果如下：
-
-![image.png](../../public/1665555817325-a0e5f505-66e7-4296-a574-16b6c24bf031.png)
-
-下面来结合使用上面的四个属性：
-
-结果如下：
-
-![image.png](../../public/1665555857653-0461ae05-01e6-486b-b3a8-33d921a24d90.png)
-
-10. 隐式网格轨道
-
-当我们设置的网格不足以放下所有的网格项时，就会自动出现一些网格轨道，这些多出来的行的高度是 auto 的，可以使用 grid-auto-columns 和 grid-auto-rows 属性来指定自动生成的网格轨道（又称为隐式网格轨道）的大小。
-
-例如：
-
-这里， grid-auto-columns 属性指定了隐式创建的网格垂直方向轨道的宽度为 100px，grid-auto-rows 属性指定了隐式创建的网格水平方向轨道的高度为 80px。
-
-11. 速记属性
-
-像大多数 CSS 属性一样，CSS Grid 提供了一些速记属性，它们提供了一种更短、更先进的方式来同时设置多个 CSS Grid 属性的值。使用这些速记属性，我们就可以编写更简洁
-
-更易读的样式，从而节省开发时间。下面就来看看这些属性。
-
-（1）gap
-
-column-gap 和 row-gap 属性用来设置网格之前的距离，即网格线的宽度。可以通过 gap 属性简写这两个属性，其语法如下：
-
-其中 <column-gap> 是一个可选值，如果省略，则设置为与 <row-gap> 相同的值。下面来看一个例子：
-
-这在网格容器中的所有列和行之间都添加了 20px 的空间，与下面的代码等价：
-
-（2）place-items
-
-place-items 用来设置 align-items 和 justify-items 属性的值，它能够同时控制所有网格项目的水平和垂直对齐。
-
-它接受两个值：第一个值设置 align-items 属性的值，第二个值设置 justify-items 属性的值。 如果未指定第二个值，则将第一个值指定为两个属性的值。
-
-例如：
-
-这会将 align-items 和 justify-items 属性的值都设置为 center，将所有网格项放置在其网格区域的中心。
-
-（3）place-content
-
-place-content 用来设置网格属性 align-content 和 justify-content 的值，它能够同时控制网格容器内整个网格的水平和垂直对齐方式。
-
-它接受两个值：第一个值设置 align-content 属性的值，第二个值设置 justify-content 属性的值。 如果未指定第二个值，则将第一个值指定为两个属性的值。
-
-例如：
-
-这样就会将 align-content 和 justify-content 属性的值都设置为 center，使整个网格在网格容器中水平和垂直居中。
-
-（4）place-self
-
-place-items 可以设置 align-self 和 justify-self 属性的值。 它能够控制单个网格项目在其网格区域内的水平和垂直对齐方式。
-
-它接受两个值：第一个值设置 align-self 属性的值，第二个值设置 justify-self 属性的值。如果未指定第二个值，则将第一个值指定为两个属性的值。
-
-例如：
-
-在上面的代码中，align-self 属性的值设置为 end，这会将网格项垂直向下推到其网格单元格的底部。justify-self 属性设置为 center，将网格项目水平放置在其单元格的中心。
-
-结果如下：
-
-![image.png](../../public/1665556922126-ad2535ff-5109-4e16-ad4f-768adc1d8e0b.png)
-
-（5）grid-column
-
-grid-column 是 grid-column-start 和 grid-column-end 属性的简写属性。 它可以指定网格项沿网格容器内的列网格线的水平起始位置以及网格项应该结束的位置。
-
-grid-column 的语法如下：
-
-grid-column 属性接受两个由斜线 (/) 分隔的网格线值，其中：
-
-● 第一个值 column-start 是 grid-column-start 属性的值；
-
-● 第二个值 column-end 是 grid-column-end 属性的值；
-
-● 斜杠 (/) 用作这两个值之间的分界线，因为两者都可以包含一个或多个空格。 因此，需要通过斜线来消除错误和歧义。 此外，作为最佳实践，建议在斜杠 (/) 的两侧添加一哥空格，以使 CSS 更具可读性。
-
-例如：
-
-上面的代码告诉网格项从网格中的第 1 列水平跨越到第 3 列，与下面的代码等价：
-
-（6）grid-row
-
-grid-row 属性的工作方式与 grid-column 属性一样。 它是 grid-row-start 和 grid-row-end 属性的简写属性。 它可以指定网格项沿网格容器中的行网格线的垂直起始位置，以及网格项应该在网格中的何处结束。
-
-例如：
-
-这就会使得网格项的高度从网格中的第 2 行向下跨越到第 5 行。
-
-grid-column 和 grid-row 属性中也可以使用 span 关键字，以下两者是等效的：
-
-斜杠后面的部分可以省略，表示跨越第一个网格。
-
-（7）grid-template
-
-grid-template-columns、grid-template-rows、grid-template-areas 这三个属性可以简写在 grid-template 属性中。
-
-grid-template 属性有三个属性值：
-
-●none： 将三个属性都设置为其初始值，即一行一列一个单元格；
-
-●subgrid： 把 grid-template-columns 和 grid-template-rows 设置为 subgrid，并且把 grid-template-areas 设置为初始值；
-
-●grid-template-rows/grid-template-columns：将 grid-template-columns 和 grid-template-rows 设为指定值，而 grid-template-areas 设置为 none。
-
-（8）grid-area
-
-grid-area 属性指定网格元素在网格布局中的大小和位置，它是 grid-row-start、grid-column-start、grid-row-end、grid-column-end 属性的合并简写形式，其语法如下：
-
-对于下面这段代码：
-
-可以简写成这样：
-
-除此之外，grid-area 属性还可以对网格元素进行命名。命名的网格元素可以通过容器的 grid-template-areas 属性来引用。
-
-下面来看一个例子：
-
-结果如下：
-
-![image.png](../../public/1665558970329-e4780077-6535-42b2-8379-1642d076c898.png)
-
-（9）grid
-
-grid 属性可以为每个显式网格容器属性（例如 grid-template-rows、grid-template-columns 和 grid-template-areas）以及每个隐式网格容器属性设置一个值（例如 grid-auto-rows、grid-auto-columns 和 grid-auto-flow）在一个声明中。
-
-grid 属性的语法如下：
-
-12. CSS Grid 调试
-
-上面我们介绍了如何定义 CSS Grid 布局，那该如何调试呢？Chrome DevTools 支持对 Grid 布局进行提示。如果一个元素是 Grid 布局，在 DevTools 的 Elements 面板中，Grid 布局的容器元素上就会显示一个 grid 的标识，如下：
-
-![image.png](../../public/1665560204401-11298ced-0e4a-4dab-b7d2-a63f3c3cce4a.png)
-
-点击这个 grid 标志，页面的 grid 网格就会显示数网格区域以及网格线，并且会为网格线进行编号，如下：
-
-![image.png](../../public/1665560187594-f3d3de81-91f6-4e3f-b32a-ab7d1b92dc4e.png)
-
-下面切换到 Layout 选项卡，就可以看到 Grid 布局的一些选项，我们可以设置页面上是否显示轨道的宽度/高度，是否展示网格区域的名称，是否显示网格线的延长，是否显示网格线的名称。除此之外，还会显示当前页面上所有使用 Grid 布局的地方，可以进行显示隐藏：
-
-![image.png](../../public/1665560667739-c72e4435-d863-4f46-8105-8a503b020349.png)
-
-通过这些选项，就可以对 CSS Grid 布局进行调试了。
-
-13. CSS Grid 生成器
-
-最后来分享几个实用的 CSS Grid 生成器。通过这些生成器，可以可视化得调整 Grid 布局，最终会拿到生成的 Grid 布局代码。
-
-（1）CSS Grid Generator
-
-![image.png](../../public/1665561628501-516edeab-5eb2-4781-a2fb-d93e640f4a95.png)
-
-在线体验：https://cssgrid-generator.netlify.app/
-
-（2）CSS Layout Generator
-
-![image.png](../../public/1665561703104-7fc885b9-8775-4d19-9f6e-889e056163a8.png)
-
-在线体验：https://layout.bradwoods.io/customize
-
-（3）Grid LayoutIt
-
-![image.png](../../public/1665561765583-6894f795-f6b6-4037-9712-252027e2f458.png)
-
-在线体验：https://grid.layoutit.com/
-
-（4）Griddy
-
-![image.png](../../public/1665561807682-c77eb79b-9c35-43bc-9738-8bfb7934bb66.png)
-
-在线体验：https://griddy.io/
-
-（5）Cssgr.id
-
-![image.png](../../public/1665561862726-ae02b225-7050-4610-b5bb-70f02f8e3965.png)
-
-在线体验：https://cssgr.id/

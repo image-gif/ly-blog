@@ -185,7 +185,24 @@ export default defineConfig({
       ],
       '/computer-base/data-struct/': [
         { text: '概述', link: '/computer-base/data-struct/index' },
-        { text: '排序算法', link: '/computer-base/data-struct/sort' }
+        { text: '排序算法', link: '/computer-base/data-struct/sort' },
+        {
+          text: 'JavaScript',
+          items: [
+            {
+              text: '2629.复合函数',
+              link: '/computer-base/data-struct/javascript/function-composition'
+            },
+            {
+              text: '2630.记忆函数II',
+              link: '/computer-base/data-struct/javascript/memoize-ii'
+            },
+            {
+              text: '2631.分组',
+              link: '/computer-base/data-struct/javascript/group-by'
+            }
+          ]
+        }
       ],
       '/project/': [
         {
