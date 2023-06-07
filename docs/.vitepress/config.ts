@@ -53,9 +53,11 @@ export default defineConfig({
           text: 'CSS',
           items: [
             { text: '概述', link: '/front-end/css/index' },
+            { text: 'CSS基础', link: '/front-end/css/css-base' },
             { text: 'CSS选择器优先级', link: '/front-end/css/css-priority' },
             { text: 'BFC块级格式化上下文', link: '/front-end/css/css-bfc' },
             { text: 'flex布局', link: '/front-end/css/css-flex' },
+            { text: 'grid布局', link: '/front-end/css/grid' },
             { text: 'CSS页面布局', link: '/front-end/css/css-layout' },
             { text: 'CSS-position', link: '/front-end/css/css-position' },
             { text: 'CSS预处理器', link: '/front-end/css/css-pre-handle' },
