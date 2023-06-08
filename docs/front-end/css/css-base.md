@@ -202,3 +202,90 @@ color：文本颜色
 五、**块级元素可以继承的属性**
 
 1、text-indent、text-align
+
+## 4. 移动端适配方案
+
+> 引用：https://juejin.cn/post/7061866685166256142
+
+### viewport 适配
+
+> 视图。在移动端设备中，浏览器视图并不是整个屏幕。因此 viewport 又被分为 3 种：`layout viewport`、`visual viewport`、`ideal viewport`
+
+为了能够适配到 pc 端开发页面中，大部分浏览器把 viewport 的宽度设置为 980px 这个浏览器默认设置的视图被称为`layout viewport`.。我们可以通过`document.documentElement.clientWidth`来获取。
+
+由于`layout viewport `的宽度是远大于浏览器宽度的，因此我们需要一个新的 viewport 来代表浏览器的可视区域宽度，这个视图则被称为`visual viewport` 我们可以使用`window.innerWidth`来获取
+
+现在我们已经有两个 viewport。但是现在越来越多的网站都会为移动设备进行单独的设计，所以必须还要有一个能完美适配的移动设备的 ideal viewport。它并没有一个固定的尺寸，不同的设备拥有不同的`ideal viewport`。比如 iphone5 的`ideal viewport`是 320px 而 iphone6s 的`ideal viewport` 却是 375px
+
+#### viewport 单位
+
+- vw：1vw 表示视图宽度的 1%
+- vh：1vh 表示视图高度的 1%
+
+如果设计稿的视图为 375px，那么 1vw = 37.5px
+
+在配置开始之前，在项目的 index.html 中添加对应的 meta
+
+```HTML
+<meta name='viewport' content='width=device-width,initial-scale=1.0,user-scalable=no' />
+```
+
+#### 设计
+
+- 引入 postcss-px-to-viewport：将 px 转换成 viewport 单位
+- 进行配置
+
+```JavaScript
+//  postcss-config.js
+modules.exports = {
+    plugins: [
+        "postcss-px-to-viewport": {
+            unitToConvert: 'px', // 要转化的单位
+            viewportWidth: 375, // UI设计稿的宽度
+            unitPrecision: 6, // 转换后的精度，即小数点位数
+            propList: ["*"], // 指定转换后的css属性单位，*代表全部css属性的单位进行转换
+            viewportUnit: 'vw', // 指定需要转换成的视图的单位，默认vw
+            fontViewportUnit: 'vw', // 指定字体需要转换的视图单位，默认vw
+            selectorBlackList: ["wrap"], // 指定不转换为视窗单位的类名，
+            minPixelValue: 1, // 默认值1，小于或等于1px则不进行转换
+            mediaQuery: true, // 是否在媒体查询的css代码中也进行转换，默认false
+            replace: true, // 是否转换后直接更换属性值
+            exclude: [/node_modules/], // 设置忽略文件，用正则做目录名匹配
+        }
+    ]
+}
+```
+
+在配置上这两个包(postcss-pxtorem)也有相似的功能。大家可以去参考一下`postcss-px-to-viewport`作者的[github](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Fevrone%2Fpostcss-px-to-viewport)
+
+**值得注意的是:\*\***`postcss-px-to-viewport`\*\* **同样存在第三方组件库兼容性的问题。比如在设计稿为 750px 时使用 vant 组件库会将 vant 组件的样式缩小。**
+
+#### 解决第三方库兼容问题
+
+vant 组件库的设计稿是按照 375px 开开发的，因此在 viewportWidth 为 750px 时会出现转换问题。
+
+```JavaScript
+// postcss.config.js
+const path = require('path');
+
+module.exports = ({webpack}) => {
+    const viewWidth = webpack.resoucePath.includes(path.join("node_modules", 'vant')) ? 375 : 750;
+    return {
+        plugins: [
+            "pstcss-px-to-viewport": {
+                ... ...
+             }
+        ]
+    }
+}
+```
+
+如果读取的`node_modules`中的文件是`vant`,那么就将设计稿变为 375px。如果读取的文件不是`vant`的文件,那么就将设计稿变为 750px。这样就可以避免`vant`组件在 750px 下出现样式缩小的问题了。
+
+### 使用淘宝的 flexiable 方案
+
+> 其本质就是通过 rem 来实现适配，将页面视图划分成 10 列，然后进行适配。
+
+但是：
+
+由于`viewport`单位得到众多浏览器的兼容，`lib-flexible`这个过渡方案已经可以放弃使用，不管是现在的版本还是以前的版本，都存有一定的问题。建议大家开始使
