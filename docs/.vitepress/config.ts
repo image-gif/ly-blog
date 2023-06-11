@@ -35,7 +35,10 @@ export default defineConfig({
       {
         text: '工具函数',
         items: [
-          { text: 'JavaScript', link: '/tool-function/javascript/base' },
+          {
+            text: 'JavaScript',
+            link: '/tool-function/javascript/create-td-array'
+          },
           { text: '网络', link: '/tool-function/network/axios-request' }
         ]
       },
@@ -209,6 +212,10 @@ export default defineConfig({
           text: 'JavaScript',
           items: [
             {
+              text: '53. 最大子数组和',
+              link: '/computer-base/data-struct/javascript/maximum-subarray'
+            },
+            {
               text: '2629.复合函数',
               link: '/computer-base/data-struct/javascript/function-composition'
             },
@@ -299,15 +306,29 @@ export default defineConfig({
 
         { text: 'WebComponents', link: '/essay/web-components' }
       ],
-      '/tool-function/': [
+      '/tool-function/javascript/': [
         {
           text: 'JavaScript',
-          items: [{ items: '基础', link: '/tool-function/javascript/base' }]
-        },
+          items: [
+            {
+              text: '创建二维数组',
+              link: '/tool-function/javascript/create-td-array'
+            },
+            {
+              text: '注销监听器',
+              link: '/tool-function/javascript/unregistry-event-listener'
+            }
+          ]
+        }
+      ],
+      '/tool-function/network/': [
         {
           text: '网络',
           items: [
-            { items: '网络请求', link: '/tool-function/network/axios-request' }
+            {
+              text: '封装axios请求',
+              link: '/tool-function/network/axios-request'
+            }
           ]
         }
       ]
