@@ -26,11 +26,20 @@ export default defineConfig({
         text: '计算机基础',
         items: [
           { text: '计算机网络', link: '/computer-base/network/index' },
+          { text: '操作系统', link: '/computer-base/operating-system/index' },
           { text: '数据结构与算法', link: '/computer-base/data-struct/index' }
         ]
       },
       { text: '随笔', link: '/essay/index' },
       { text: '项目实践', link: '/project/index' },
+      {
+        text: '工具函数',
+        items: [
+          { text: 'JavaScript', link: '/tool-function/javascript/base' },
+          { text: '网络', link: '/tool-function/network/axios-request' }
+        ]
+      },
+
       { text: 'gitee', link: 'https://gitee.com/codingpeasant12' }
     ],
     sidebar: {
@@ -179,7 +188,17 @@ export default defineConfig({
               text: 'axios基本使用',
               link: '/computer-base/network/axios-base'
             },
-            { text: 'axios核心', link: '/computer-base/network/axios-core' }
+            { text: 'axios核心', link: '/computer-base/network/axios-core' },
+            { text: '网络安全', link: '/computer-base/network/network-safe' }
+          ]
+        }
+      ],
+      '/computer-base/operating-system/': [
+        {
+          text: '操作系统',
+          items: [
+            { text: '概述', link: '/computer-base/operating-system/index' },
+            { text: '内存管理', link: '/computer-base/operating-system/memory' }
           ]
         }
       ],
@@ -279,6 +298,18 @@ export default defineConfig({
         },
 
         { text: 'WebComponents', link: '/essay/web-components' }
+      ],
+      '/tool-function/': [
+        {
+          text: 'JavaScript',
+          items: [{ items: '基础', link: '/tool-function/javascript/base' }]
+        },
+        {
+          text: '网络',
+          items: [
+            { items: '网络请求', link: '/tool-function/network/axios-request' }
+          ]
+        }
       ]
     },
 

@@ -1,4 +1,4 @@
-# Axios 核心
+进阶 axios
 
 阅读源码不仅能学习到新的知识点也能发现自己的不足，带着问题去读源码是个好的习惯哦：
 
@@ -10,7 +10,7 @@
 
 ## 解决问题式阅读源码
 
-### 1. axios 是怎么实现可以创建多个实例的
+### axios 是怎么实现可以创建多个实例的
 
 > 在源码中，通过 createInstance 函数创建新的实例、
 >
@@ -51,7 +51,7 @@ function createInstance(defaultConfig) {
 
 在之前版本的代码中`create`函数并不在`createInstance`里面，而是放在`axios`上，既：`axios.create(config)`。为什么这么修改呢？可以看看`Github`上的这个 PR-#2795。这么写是为了能更方便的在有多个域名的复杂的项目提供更深层次的构建。
 
-### 2. axios 的拦截器是怎么实现的
+### axios 的拦截器是怎么实现的
 
 > 实现拦截器的过程：将对应的拦截存放到堆栈中-> 将拦截器和请求函数放到一个数组中，形成：
 >
@@ -278,7 +278,7 @@ request(configOrUrl, config) {
 
 在执行请求前定义了两个堆栈`requestInterceptorChain`和`responseInterceptorChain`来存储拦截器处理函数
 
-- `requestInterceptorChain`存储的是请求拦截器的处理函数，要注意它通过`unshift`添加的，是先进后出的，所以越早添加的拦截器越晚执行。
+- `requestInterceptorChain`存储的是请求拦截器的处理函数，要注意它通过`unshift`添加的，**是先进后出的，所以越早添加的拦截器越晚执行**。
 - `responseInterceptorChain`存储的是响应拦截器的处理函数，这个是先进先出的，也就是越早添加越先执行。
 
 > 这里需要注意的是，在存入堆栈时都是两个为一组存储的，第一个始终是`fulfilled`的处理函数，第二个始终是`rejected`，因为后续取值的时候也是两个为一组取，刚好对应`Promise.then`函数对应的两个参数。
@@ -313,7 +313,7 @@ axios.interceptors.request.use(function (config) {
 
 所以会默认情况是会执行`if`语句块里的代码。后面的代码就是请求拦截器同步执行的代码，这里就不多赘述啦
 
-### 3. axios 取消请求是怎么实现的
+### axios 取消请求是怎么实现的
 
 目前 axios 提供了两种处理取消请求的方式：
 
@@ -370,11 +370,172 @@ axios.post('/user/12345', {
 source.cancel('Operation canceled by the user.');
 ```
 
-暂定
+简单查看源码中实现取消请求的方法
 
-### 4. axios 如何实现 XSRF 预防
+- lib/adapters/xhr.js
 
-### 5. axios 优缺点
+```JavaScript
+    let request = new XMLHttpRequest();
+    if (config.cancelToken || config.signal) {
+      // Handle cancellation
+      // eslint-disable-next-line func-names
+      onCanceled = cancel => {
+        if (!request) {
+          return;
+        }
+        reject(!cancel || cancel.type ? new CanceledError(null, config, request) : cancel);
+        request.abort();
+        request = null;
+      };
+       // 通过axios.cancelToken实现的取消请求；
+       // 这里会去订阅这个onCanceled；然后当触发canle方法时，就执行这个函数
+      config.cancelToken && config.cancelToken.subscribe(onCanceled);
+      if (config.signal) {
+        // 这里是使用AbortController实现取消请求
+        // 通过事件监听来实现取消请求
+        config.signal.aborted ? onCanceled() : config.signal.addEventListener('abort', onCanceled);
+      }
+    }
+```
+
+- lib/cancel/cancelToken
+
+```JavaScript
+class CancelToken {
+  constructor(executor) {
+    if (typeof executor !== 'function') {
+      throw new TypeError('executor must be a function.');
+    }
+
+    let resolvePromise;
+
+    // 新建一个promise, 此时这个promise为pending状态，挂起，等待resolve或reject
+    this.promise = new Promise(function promiseExecutor(resolve) {
+      resolvePromise = resolve;
+    });
+
+    const token = this;
+
+    // eslint-disable-next-line func-names
+    this.promise.then(cancel => {
+      if (!token._listeners) return;
+
+      let i = token._listeners.length;
+
+      while (i-- > 0) {
+       // 3. 执行订阅的事件，取消请求
+        token._listeners[i](cancel);
+      }
+      token._listeners = null;
+    });
+
+    // eslint-disable-next-line func-names
+    this.promise.then = onfulfilled => {
+      let _resolve;
+      // eslint-disable-next-line func-names
+      const promise = new Promise(resolve => {
+        token.subscribe(resolve);
+        _resolve = resolve;
+      }).then(onfulfilled);
+
+      promise.cancel = function reject() {
+        token.unsubscribe(_resolve);
+      };
+
+      return promise;
+    };
+
+    executor(function cancel(message, config, request) {
+      if (token.reason) {
+        // Cancellation has already been requested
+        return;
+      }
+       // 2. 调用cancel函数，准备取消请求
+      token.reason = new CanceledError(message, config, request);
+      resolvePromise(token.reason);
+    });
+  }
+
+  /**
+   * Throws a `CanceledError` if cancellation has been requested.
+   */
+  throwIfRequested() {
+    if (this.reason) {
+      throw this.reason;
+    }
+  }
+
+  /**
+   * Subscribe to the cancel signal
+   */
+    // 1. 订阅，对应事件存放进_listeners中
+  subscribe(listener) {
+    if (this.reason) {
+      listener(this.reason);
+      return;
+    }
+
+    if (this._listeners) {
+      this._listeners.push(listener);
+    } else {
+      this._listeners = [listener];
+    }
+  }
+
+  /**
+   * Unsubscribe from the cancel signal
+   */
+
+  unsubscribe(listener) {
+    if (!this._listeners) {
+      return;
+    }
+    const index = this._listeners.indexOf(listener);
+    if (index !== -1) {
+      this._listeners.splice(index, 1);
+    }
+  }
+
+  /**
+   * Returns an object that contains a new `CancelToken` and a function that, when called,
+   * cancels the `CancelToken`.
+   */
+  static source() {
+    let cancel;
+    const token = new CancelToken(function executor(c) {
+      cancel = c;
+    });
+    return {
+      token,
+      cancel
+    };
+  }
+}
+```
+
+### axios 如何实现 XSRF 预防
+
+在`axios`使用很简单，在请求上添加配置即可（下面两个都是默认值）
+
+```JavaScript
+//`xsrfCookieName`是要用作 xsrf 令牌的值的cookie的名称
+xsrfCookieName: 'XSRF-TOKEN', // default
+// `xsrfHeaderName`是携带xsrf令牌值的http头的名称
+xsrfHeaderName: 'X-XSRF-TOKEN', // default
+```
+
+防护`XSRF`策略有多种，一般的防护策略有：
+
+- 阻止不明外域的访问
+  - 同源检测
+  - Samesite Cookie
+- 提交时要求附加本域才能获取的信息
+  - 双重 Cookie 验证
+  - CSRF Token
+
+同源策略虽然可以防护，但多少还有点缺陷，比如来之搜索引擎的访问。而在请求头上加`token`是目前一种更有效的防护策略。详情参考这篇博文：如何防止 CSRF 攻击？
+
+### axios 优缺点
 
 - 优点
   - 体积小
@@ -390,7 +551,7 @@ source.cancel('Operation canceled by the user.');
 
 ## 源码中的工具方法摘录
 
-### 1. 封装 Function.bind 函数
+### 封装 Function.bind 函数
 
 ```JavaScript
 // 封装Function.bind函数
@@ -407,7 +568,7 @@ export default function bind(fn, thisArg) {
 }
 ```
 
-### 2. 关于 axios 提供的高阶函数 kindOf，用于判断任意类型的值的类型
+### 关于 axios 提供的高阶函数 kindOf，用于判断任意类型的值的类型
 
 ```JavaScript
 const {toString} = Object.prototype;
@@ -424,7 +585,7 @@ const kindOf = (cache => thing => {
 })(Object.create(null));
 ```
 
-### 3. 判断一个对象是不是一个纯对象 isPlaintObject
+### 判断一个对象是不是一个纯对象 isPlaintObject
 
 ```JavaScript
 const isPlainObject = (val) => {
