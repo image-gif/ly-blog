@@ -303,6 +303,7 @@ export default defineConfig({
         { text: 'halo 一个开源网站构建工具', link: '/essay/halo' },
         { text: '一些常用工具', link: '/essay/tools' },
         { text: '前端监控系统', link: '/essay/monitor' },
+        { text: 'bash创建自定义执行脚本', link: '/essay/bash' },
         {
           text: 'PWA',
           items: [
