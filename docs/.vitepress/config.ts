@@ -112,6 +112,10 @@ export default defineConfig({
               link: '/front-end/javascript/design-pattern'
             },
             {
+              text: 'ECMAScript新特性',
+              link: '/front-end/javascript/ecma-feature'
+            },
+            {
               text: '文件处理',
               items: [
                 {
@@ -211,6 +215,10 @@ export default defineConfig({
         {
           text: 'JavaScript',
           items: [
+            {
+              text: '3. 无重复字符的最长子串',
+              link: '/computer-base/data-struct/javascript/longest-substring-without-repeating-characters'
+            },
             {
               text: '53. 最大子数组和',
               link: '/computer-base/data-struct/javascript/maximum-subarray'
