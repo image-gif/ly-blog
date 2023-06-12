@@ -326,6 +326,10 @@ export default defineConfig({
             {
               text: '注销监听器',
               link: '/tool-function/javascript/unregistry-event-listener'
+            },
+            {
+              text: '判断是否为偶数',
+              link: '/tool-function/javascript/is-even'
             }
           ]
         }
