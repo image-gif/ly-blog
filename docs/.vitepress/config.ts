@@ -205,7 +205,19 @@ export default defineConfig({
           text: '操作系统',
           items: [
             { text: '概述', link: '/computer-base/operating-system/index' },
-            { text: '内存管理', link: '/computer-base/operating-system/memory' }
+            {
+              text: '进程管理',
+              link: '/computer-base/operating-system/progress'
+            },
+            {
+              text: '内存管理',
+              link: '/computer-base/operating-system/memory'
+            },
+            {
+              text: '文件管理',
+              link: '/computer-base/operating-system/file-manage'
+            },
+            { text: '输入输出I/O', link: '/computer-base/operating-system/io' }
           ]
         }
       ],
@@ -346,7 +358,6 @@ export default defineConfig({
         }
       ]
     },
-
     socialLinks: [{ icon: 'github', link: 'https://github.com/image-gif' }]
   }
 });
