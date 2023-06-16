@@ -141,7 +141,16 @@ export default defineConfig({
         {
           text: 'TypeScript',
           items: [
-            { text: '基础', link: '/front-end/javascript/typescript/index' }
+            { text: '基础', link: '/front-end/javascript/typescript/index' },
+            {
+              text: '工具类型',
+              link: '/front-end/javascript/typescript/tool-types'
+            },
+            {
+              text: '命名空间',
+              link: '/front-end/javascript/typescript/namespace'
+            },
+            { text: '其他', link: '/front-end/javascript/typescript/other' }
           ]
         }
       ],
@@ -264,6 +273,7 @@ export default defineConfig({
               link: '/project/nginx-location-match'
             },
             { text: '项目笔记', link: '/project/project-record' },
+            { text: '代码规范', link: '/project/code-rule' },
             {
               text: '文件上传',
               items: [

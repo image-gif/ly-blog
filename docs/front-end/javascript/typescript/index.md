@@ -1,113 +1,5 @@
 # TypeScript 学习
 
-## 命名空间
-
-> **命名空间**：命名空间一个最明确的目的就是解决重名问题
->
-> 命名空间定义了标识符的可见范围，一个标识符可在多个名字空间中定义，它在不同名字空间中的含义是互不相干的
->
-> 这样，在一个新的名字空间中可定义任何标识符，它们不会与任何已有的标识符发生冲突，因为已有的定义都处于其他名字空间中
-
-### **命名空间的声明**
-
-TypeScript 的命名空间只对外暴露需要在外部访问的对象，命名空间内的对象通过 export 关键字对外暴露，比如我们在一个名叫 `utils.ts` 的文件里声明一个命名空间：
-
-```COBOL
-// utils.ts
-namespace Utils {
-    export interface IPerson {
-        name: string;
-        age: number;
-    }
-}
-```
-
-### **命名空间的使用**
-
-通过 namespace 关键字声明命名空间，在命名空间外部需要通过*完全限定名*访问这些对象，通常情况下，声明的命名空间代码和调用的代码不在同一个文件里，因此在其他文件中使用，注意引入的路径要写正确，此处我们在同级目录中任意一个 ts 文件中使用我们刚定义的命名空间：
-
-```COBOL
-/// <reference path="utils.ts" />
-const me: Utils.IPerson = {
-    name: 'funlee',
-    age: 18
-}
-console.log(me); // {name: 'funlee', age: 18}
-
-```
-
-如上述代码所示，通过 reference 注释引用命名空间，即可通过*完全限定名*进行访问，我们也可以通过 `import` 导入模块的形式，引入命名空间：
-
-```COBOL
-import './utils'
-
-const me: Utils.IPerson = {
-    name: 'funlee',
-    age: 18
-}
-console.log(me); // {name: 'funlee', age: 18}
-
-```
-
-### **多文件的命名空间**
-
-就像普通的 JS 模块文件可以相互引用一样，包含 namespace 的命名空间文件也可以相互引入，还可以组合成一个更大的命名空间，下面是一个简单的示例，所有文件都在同一目录下，你也可参考官方示例：
-
-```COBOL
-namespace Utils {
-    export interface IAnimal {
-        name: string;
-        say(): void;
-    }
-}
-```
-
-animal.ts
-
-```COBOL
-/// <reference path="utils.ts" />
-
-export namespace Animal {
-    export class Dog implements Utils.IAnimal{
-        name: string;
-        constructor(theName: string) {
-            this.name = theName;
-        }
-        say() {
-            console.log(`${this.name}: 汪汪汪`)
-        }
-    }
-}
-```
-
-index.ts
-
-```COBOL
-import {Animal} from './animal';
-
-const he = new Animal.Dog('Jack');
-he.say(); // Jack: 汪汪汪
-
-```
-
-## 命名空间和模块的区别
-
-> **模块**：`TypeScript` 与` ECMAScript` 2015 一样，任何包含顶级 `import` 或者 `export` 的文件都被当成一个模块
->
-> 相反地，如果一个文件不带有顶级的`import`或者`export`声明，那么它的内容被视为全局可见的
-
-**它们之间的区别**：
-
-- 命名空间是位于全局命名空间下的一个普通的带有名字的 JavaScript 对象，使用起来十分容易。但就像其它的全局命名空间污染一样，它很难去识别组件之间的依赖关系，尤其是在大型的应用中
-- 像命名空间一样，模块可以包含代码和声明。 不同的是模块可以声明它的依赖
-- 在正常的 TS 项目开发过程中并不建议用命名空间，但通常在通过 d.ts 文件标记 js 库类型的时候使用命名空间，主要作用是给编译器编写代码的时候参考使用
-
-## 访问修饰符
-
-> - Public
-> - Private
-> - protected
-
 ## Typescript 和 JavaScript 区别
 
 > Typescript 是 **JavaScript 的超集**，可以被编译成 JavaScript 代码。用 JavaScript 编写的代码，在 TypeScript 中依然有效。Typescript 是纯面向对象的编程语言，包含类和接口的概念。 程序员可以用它来编写面向对象的服务端或客户端程序，并将它们编译成 JavaScript 代码。
@@ -116,327 +8,6 @@ he.say(); // Jack: 汪汪汪
 > - 兼容 js
 > - 面向对象
 > - 编译成 js
-
-## never 和 void 的区别
-
-```TypeScript
-// 一般的never不能用于函数返回值，但是像这种抛错误异常的函数，可以使用never
-function bar(): never {
-  throw new Error('稀烂');
-}
-
-// 使用void
-function foo(): void {
-  // throw new TypeError();
-  console.log('稀烂');
-}
-```
-
-## TypeScript 常用工具泛型函数总结
-
-### Pick
-
-> Pick 的作用是从 T 中取出一系列 K 的属性
-
-```TypeScript
-type Pick<T, K extends keyof T> = { [P in K]: T[P]; }; // 等价
-
-// 实现这个泛型函数
-type Person<T, K extends keyof T> = {
-    [key in k]: T[key]
-}
-
-type Stu = {
-    name: string,
-    age: number,
-    sex: number
-}
-
-
-// 等价
-let one: Pick<Stu, 'name' | 'age'>;
-
-let two: Person<Stu, 'name' | 'age'>;
-```
-
-### Keyof
-
-> [TypeScript](https://so.csdn.net/so/search?q=TypeScript&spm=1001.2101.3001.7020)中的 keyof 操作符，是将一个类型映射为它所有成员名称的联合类型。
-
-```TypeScript
-interface Person {
-  name: string;
-  age: number;
-  gender: string;
-}
-type P = keyof Person; // "name" | "age" | "gender"
-
-// 我们可以看到，keyof将Person这个对象类型映射成了一个联合类型
-// 因此我们可以更方便的操作这个联合类型
-```
-
-### Partial
-
-> Partial 的作用是将传入的属性变成**可选项**，原理就是使用 keyof 拿到所有属性名，然后再使用 in[遍历]，T[P]拿到相应的值；
-
-```TypeScript
-type Partial<T> = {[K in keyof T]?: T[k]};
-
-type Person = {
-  name: string;
-  age: number;
-  sex: number;
-};
-
-// 这里使用Person类型的时候，所有属性都是必须填写的
-let one: Person = {
-  name: 'string',
-  sex: 0,
-  age: 1
-};
-// partial 将一个类型中的所有属性置位为必填属性
-type Student = Partial<Person>;
-// 此时里面的属性都是非必填属性
-let two: Student = {};
-// 实现
-type Work<T> = {
-  [K in keyof T]?: T[K];
-};
-
-let work: Work<Person> = {
-  name: '123'
-};
-```
-
-### Required
-
-```JavaScript
-// Required 顾名思义吧
-type Person = {
-  name: string;
-  age?: number;
-  sex: number;
-};
-
-// 此时的age属性是可选属性
-let stu: Person = {
-  name: 'string',
-  sex: 1
-};
-
-type Work = Required<Person>;
-
-let work: Work = {
-  name: 'string',
-  sex: 1,
-  age: 3 // 此时的age属性为必填属性
-};
-// 实现
-type Thing<T> = {
-  [K in keyof T]-?: T[K]; // -? 顾名思义就是去掉选填的配置
-};
-```
-
-### readOnly
-
-```JavaScript
-// readOnly 将传入的属性变成只读选项
-type Person = {
-  name: string;
-  age: number;
-  sex: number;
-};
-
-type Student = Readonly<Person>;
-
-let stu: Student = {
-  name: '123',
-  age: 12,
-  sex: 1
-};
-
-// stu.name = '123'; // 无法为“name”赋值，因为它是只读属性。
-
-// 实现
-type Work<T> = {
-  readonly [K in keyof T]: T[K];
-};
-```
-
-### Record
-
-```TypeScript
-// record 将K中所有属性的值转换成T类型
-type Person = 'cat' | 'dog' | 'pig';
-
-type Student = Record<Person, string>;
-
-let stu: Student = {
-  cat: 'string',
-  dog: 'string',
-  pig: 'string'
-};
-console.log(stu);
-```
-
-### Mutable
-
-> 这个在使用的时候提示**找不到；**可能存在版本的问题
-
-```TypeScript
-// mutable 的作用是实现类型中所有只读属性修改为非只读属性
-// 用法同readOnly
-// 原理是就是： -readOnly
-//
-
-type Person = {
-  name: string;
-  readonly age: number;
-};
-
-type A<T> = {
-  -readonly [k in keyof T]: T[k];
-};
-
-let person: A<Person> = {
-  name: 'string',
-  age: 12
-};
-
-person.age = 123;
-```
-
-### exclude
-
-> Exclude 的作用是从 T 中找出 U 中没有的元素
-> Constructs a type by excluding from UnionType all union members that are assignable to ExcludedMembers ---- 摘自官网
->
-> 需要注意的是，这里需要的是联合类型
-
-```TypeScript
-type Exclude<T, U> = T extends U ? never : T;
-
-type A = Exclude<'key1' | 'key2', 'key2'>
-// 'key1'
-
-type A = `Exclude<'key1' | 'key2', 'key2'>`
-
-// 等价于
-
-type A = `Exclude<'key1', 'key2'>` | `Exclude<'key2', 'key2'>`
-
-// =>
-
-type A = ('key1' extends 'key2' ? never : 'key1') | ('key'2 extends 'key2' ? never : 'key2')
-
-// =>
-
-// never是所有类型的子类型
-type A = 'key1' | never = 'key1'
-```
-
-### Extract
-
-> 高级类型`Extract`和上面的`Exclude`刚好相反，它是将第二个参数的联合项从第一个参数的联合项中`提取出来`，当然，第二个参数可以含有第一个参数没有的项。
-
-```TypeScript
-type Extract<T, U> = T extends U ? T : never
-type A = Extract<'key1' | 'key2', 'key1'> // 'key1'
-```
-
-### Omit
-
-> Omit 的作用是忽略对象的某些属性功能 它的作用主要是：以一个类型为基础支持剔除某些属性，然后返回一个新类型。
-
-```TypeScript
-// 等价
-type Omit<T, K extends keyof any> = Pick<T, Exclude<keyof T, K>>;
-
-// 案例
-type Person = {
-    name: string;
-    age: string;
-    location: string;
-};
-
-type PersonWithoutLocation = Omit<Person, 'location'>;
-
-// PersonWithoutLocation equal to QuantumPerson
-type QuantumPerson = {
-    name: string;
-    age: string;
-};
-```
-
-### TypeScript 获取函数的参数类型、返回值类型
-
-```TypeScript
-const foo = (arg1: string, arg2: number): void => {};
-
-type MyParameters<T> = T extends (...arg: infer U) => any ? U : never;
-
-type FunctionParamsType = MyParameters<typeof foo>; // [arg1: string, arg2: number]
-
-export { MyParameters };
-
-
-// 测试
-import type { Equal, Expect } from '@type-challenges/utils';
-import type { MyParameters } from './Parameters';
-const foo = (arg1: string, arg2: number): void => {};
-const bar = (arg1: boolean, arg2: { a: 'A' }): void => {};
-const baz = (): void => {};
-
-type cases = [
-  Expect<Equal<MyParameters<typeof foo>, [string, number]>>,
-  Expect<Equal<MyParameters<typeof bar>, [boolean, { a: 'A' }]>>,
-  Expect<Equal<MyParameters<typeof baz>, []>>
-];
-
-// 同理返回值类型
-const fn = (v: boolean) => {
-  if (v) return 1;
-  else return 2;
-};
-
-// 代码实现
-type MyReturnType<T extends (...args: any[]) => any> = T extends (
-  ...args: any[]
-) => infer R
-  ? R
-  : never;
-
-type a = MyReturnType<typeof fn>; // should be "1 | 2"
-export {
-  MyReturnType
-}
-```
-
-## 类型声明空间和变量声明空间
-
-```TypeScript
-// 类型声明空间包含用来当做类型注解的内容，例如下面的类型声明：
-class Foo {}
-interface Bar {}
-type Bas = {};
-
-//
-let foo: Foo;
-let bar: Bar;
-let bas: Bas;
-```
-
-🍓 注意，尽管你定义了 `interface Bar`，却并不能够把它作为一个变量来使用，因为它没有定义在变量声明空间中。
-
-```TypeScript
-//变量声明空间包含可用作变量的内容，在上文中 Class Foo 提供了一个类型 Foo 到类型声明空间，此外它同样提供了一个变量 Foo 到变量声明空间，如下所示：
-
-class Foo {}
-const someVar = Foo;
-const someOtherVar = 123;
-```
-
-🍓 与此相似，一些用 `var` 声明的变量，也只能在变量声明空间使用，不能用作类型注解。
 
 ## Ts 数据类型
 
@@ -507,7 +78,7 @@ console.log(value1 === value2) // true
 ```TypeScript
 const value1 = Symbol.for("123");
 
-console.log(Symbol.keyFor(value1)) // "123"
+console.log(Symbol.keyFor(value1)); // "123"
 ```
 
 ### 复杂基础类型
@@ -517,7 +88,7 @@ console.log(Symbol.keyFor(value1)) // "123"
 定义方式：
 
 - 直接定义：通过 Type[] 的形式指定这个类型元素均为 Type 类型的数组类型，推荐使用这种方式；
-- 数组泛型：通过 Array<Type>的形式定义，使用这种形式定义时，tslint 可能会警告让我们使用第一种形式定义，可以通过 tslint.json 的 rules 中加入 "array-type": [false] 就可以关闭 tslint 对这条的检测
+- 数组泛型：通过 Array\<Type\>的形式定义，使用这种形式定义时，tslint 可能会警告让我们使用第一种形式定义，可以通过 tslint.json 的 rules 中加入 "array-type": [false] 就可以关闭 tslint 对这条的检测
 
 ```TypeScript
 let array1: number[] = [1,2,3]
@@ -530,7 +101,7 @@ console.log(array2)
 
 在 TypeScript 中，当想让一个变量或者函数的参数类型是一个对象的形式时，可以使用这个类型
 
-### ts 中的特殊类型
+### ts 中基本数据类型的分析
 
 > any，null，undefined（这两个在 js 中也是有的，是 js 的基本数据类型），以及 void（一般用户没有返回值的函数返回值类型上）
 
@@ -607,6 +178,18 @@ let bar: never = (() => {throw new Error('Throw my hands in the air like I just 
 
 当一个函数返回空值时，它的返回值为 void 类型，但是，当一个函数永不返回时（或者总是抛出错误），它的返回值为 never 类型。void 类型可以被赋值（在 strictNullChecking 为 false 时），但是除了 never 本身以外，其他任何类型不能赋值给 never。
 
+````TypeScript
+// 一般的never不能用于函数返回值，但是像这种抛错误异常的函数，可以使用never
+function bar(): never {
+  throw new Error('稀烂');
+}
+
+// 使用void
+function foo(): void {
+  // throw new TypeError();
+  console.log('稀烂');
+}
+
 #### Unknown
 
 > unknown 类型是 ts 中所有基础类型的父类型，所有基础类型都能赋值为 unknown 类型。
@@ -616,6 +199,8 @@ let bar: never = (() => {throw new Error('Throw my hands in the air like I just 
 > 所以 any 和 unknown 的区别就是：
 >
 > 二者都是可以赋值给任意类型的， `any` 会绕过类型检查，直接可用；而 `unkonwn` 则必须要在判断完它是什么类型之后才能继续使用（需要先进行类型断言）
+
+## TypeScript 中特有的类型
 
 ### 联合类型
 
@@ -632,7 +217,7 @@ else {
 }
 // Do stuff with line: string
 }
-```
+````
 
 ### 交叉类型
 
@@ -702,22 +287,6 @@ console.log(Roles.EIGHT)
 [LOG]: 102
 [LOG]: 2
 ```
-
-### 类型别名
-
-> TypeScript 提供了为类型注解设置别名的便捷语法，你可以使用 `type SomeName = someValidTypeAnnotation` 来创建别名：
-
-```TypeScript
-type StrOrNum = string | number;// 使用let sample: StrOrNum;
-sample = 123;
-sample = '123';// 会检查类型
-sample = true; // Error
-```
-
-TIP
-
-- 如果你需要使用类型注解的层次结构，请使用接口。它能使用 `implements` 和 `extends`
-- 为一个简单的对象类型（如上面例子中的 Coordinates）使用类型别名，只需要给它一个语义化的名字即可。另外，当你想给联合类型和交叉类型提供一个语义化的名称时，一个类型别名将会是一个好的选择。
 
 ## 函数
 
@@ -837,6 +406,22 @@ class Animal implements IFoodTypes {
 }
 ```
 
+## 类型别名
+
+> TypeScript 提供了为类型注解设置别名的便捷语法，你可以使用 `type SomeName = someValidTypeAnnotation` 来创建别名：
+
+```TypeScript
+type StrOrNum = string | number;// 使用let sample: StrOrNum;
+sample = 123;
+sample = '123';// 会检查类型
+sample = true; // Error
+```
+
+TIP
+
+- 如果你需要使用类型注解的层次结构，请使用接口。它能使用 `implements` 和 `extends`
+- 为一个简单的对象类型（如上面例子中的 Coordinates）使用类型别名，只需要给它一个语义化的名字即可。另外，当你想给联合类型和交叉类型提供一个语义化的名称时，一个类型别名将会是一个好的选择。
+
 ## 类型断言
 
 > TypeScript 允许你覆盖它的推断，并且能以你任何你想要的方式分析它，这种机制被称为「类型断言」。TypeScript 类型断言用来告诉编译器你比它更了解这个类型，并且它不应该再发出错误。
@@ -854,19 +439,6 @@ let foo = <string>bar;</string>;
 ```
 
 因此，为了一致性，我们建议你使用 `as foo` 的语法来为类型断言
-
-## 关于`noImplicitAny`
-
-```
-noImplicitAny
-```
-
-选项 `noImplicitAny` 用来告诉编译器，当无法推断一个变量时发出一个错误（或者只能推断为一个隐式的 `any` 类型），你可以：
-
-- 通过显式添加 `:any` 的类型注解，来让它成为一个 `any` 类型；
-- 通过一些更正确的类型注解来帮助 TypeScript 推断类型。
-
-注： 这个选项是在 ts.config.json 中的
 
 ## 异常处理
 
@@ -925,39 +497,6 @@ decodeURI('%'); // URIError: URL 异常
 > 混入，通过一个方法，将多个属性，类等合并到一个地方；
 
 [深入理解 TypeScript](https://jkchao.github.io/typescript-book-chinese/)
-
-1. ## Type-Only Imports and Export（官方文档拷贝）
-
-> [文档地址](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-8.html#type-only-imports-and-export)
-
-This feature is something most users may never have to think about; however, if you’ve hit issues under `isolatedModules`, TypeScript’s `transpileModule` API, or Babel, this feature might be relevant.
-
-TypeScript 3.8 adds a new syntax for type-only imports and exports.
-
-**仅含类型的导入和导出，主要是用于在类型注解，申明等；**
-
-```Plaintext
-import type { SomeThing } from "./some-module.js";
-export type { SomeThing };
-```
-
-`import type` only imports declarations to be used for type annotations and declarations. It _always_ gets fully erased, so there’s no remnant of it at runtime. Similarly, `export type` only provides an export that can be used for type contexts, and is also erased from TypeScript’s output.
-
-It’s important to note that classes have a value at runtime and a type at design-time, and the use is context-sensitive. When using `import type` to import a class, you can’t do things like extend from it.
-
-**需要注意的是类的特性，因为其既可以作为类型也可以作为变量；但是在通过仅类型导入时，如果去用于子类的继承时，就会报错，因为继承需要的是一个值，一个变量的形式，而不是类型；**
-
-```Plaintext
-import type { Component } from "react";
-interface ButtonProps {
-  // ...
-}
-class Button extends Component<ButtonProps> {
-  //               ~~~~~~~~~
-  // error! 'Component' only refers to a type, but is being used as a value here.
-  // ...
-}
-```
 
 ## 关于 infer 的使用
 
