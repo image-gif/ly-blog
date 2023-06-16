@@ -196,6 +196,8 @@ export default defineConfig({
               link: '/computer-base/network/axios-base'
             },
             { text: 'axios核心', link: '/computer-base/network/axios-core' },
+            { text: 'DNS', link: '/computer-base/network/dns' },
+            { text: 'HTTPS', link: '/computer-base/network/https' },
             { text: '网络安全', link: '/computer-base/network/network-safe' }
           ]
         }

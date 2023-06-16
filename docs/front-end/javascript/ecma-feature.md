@@ -269,7 +269,7 @@ dog.description; // dog
 
 ### BigInt
 
-这是 JavaScript 引入的第八种基本类型。BigInt 可以表示任意大的整数。其语法如下：
+这是 JavaScript 引入的第七种基本类型。BigInt 可以表示任意大的整数。其语法如下：
 
 ```JavaScript
 BigInt(value);

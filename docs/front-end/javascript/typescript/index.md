@@ -309,6 +309,9 @@ person.age = 123;
 ### exclude
 
 > Exclude 的作用是从 T 中找出 U 中没有的元素
+> Constructs a type by excluding from UnionType all union members that are assignable to ExcludedMembers ---- 摘自官网
+>
+> 需要注意的是，这里需要的是联合类型
 
 ```TypeScript
 type Exclude<T, U> = T extends U ? never : T;
@@ -436,6 +439,96 @@ const someOtherVar = 123;
 🍓 与此相似，一些用 `var` 声明的变量，也只能在变量声明空间使用，不能用作类型注解。
 
 ## Ts 数据类型
+
+### 简单基础类型
+
+- Number
+- String
+- Boolean
+
+只能是 true 或者 false
+
+- Null
+- Undefined
+- BigInt
+- Symbol
+
+> 1. null 和 undefined 类型是比较特殊的一类，它们既可以是类型也是值，它们是所有类型的子类，但是严格模式下它们只能赋值给它们对应的类型和 any 类型，当然这里有一个例外，就是 undefined 可以赋值给 void 类型；
+> 2. Symbol 类型，表示一个独一无二的值。在 TypeScript 中，可以使用 unique symbol 类型，它是 Symbol 的子类型
+
+```TypeScript
+const value: unique symbol = Symbol("123")
+const value1: symbol = Symbol("123")
+```
+
+symbol 类型可以作为对象的属性名，在 es6 特性中，对象的属性可以是一个变量，那么我们可以将这个变量赋值为一个 symbol 类型的值，但是在遍历这个对象的时候，是不能通过：Object.keys, Object.getOwnPropertyNames, for...in 等方法访问到这个 symbol 类型的属性的；
+
+但是我们通过: Object.getOwnPropertySymbols, Reflect.ownKeys 方法获取, 其中 Reflect.ownKeys 是可以获取对象自身的所有属性;
+
+```TypeScript
+let key: symbol = Symbol("name")
+const obj = {
+    age: 123,
+    [key]: "TypeScript"
+}
+
+for(let key in obj) {
+    console.log(key)
+}
+
+console.log(Object.keys(obj))
+console.log(Object.getOwnPropertyNames(obj))
+console.log(Object.getOwnPropertySymbols(obj))
+console.log(Reflect.ownKeys(obj))
+// output
+[LOG]: "age"
+[LOG]: ["age"]
+[LOG]: ["age"]
+[LOG]: [Symbol(name)]
+[LOG]: ["age", Symbol(name)]
+```
+
+- Symbol.for
+
+使用 Symbol.for 传入字符串，会先检查有没有使用该字符串调用 Symbol.for 方法创建 Symbol 类型的值，如果有就直接返回该值，如果没有就使用功能该字符串创建对应的 symbol 类型的值，并返回。
+
+```TypeScript
+const value1 = Symbol.for("123");
+
+const value2 = Symbol.for("123");
+
+console.log(value1 === value2) // true
+```
+
+- Symbol.keyFor
+
+该方法传入一个 Symbol 类型的值，返回该值在全局注册的键名。
+
+```TypeScript
+const value1 = Symbol.for("123");
+
+console.log(Symbol.keyFor(value1)) // "123"
+```
+
+### 复杂基础类型
+
+#### Array
+
+定义方式：
+
+- 直接定义：通过 Type[] 的形式指定这个类型元素均为 Type 类型的数组类型，推荐使用这种方式；
+- 数组泛型：通过 Array<Type>的形式定义，使用这种形式定义时，tslint 可能会警告让我们使用第一种形式定义，可以通过 tslint.json 的 rules 中加入 "array-type": [false] 就可以关闭 tslint 对这条的检测
+
+```TypeScript
+let array1: number[] = [1,2,3]
+console.log(array1)
+let array2: Array<number> = [4,5,6]
+console.log(array2)
+```
+
+#### Object
+
+在 TypeScript 中，当想让一个变量或者函数的参数类型是一个对象的形式时，可以使用这个类型
 
 ### ts 中的特殊类型
 
@@ -576,6 +669,40 @@ nameNumber = ['Jenny', 221345];// Error
 nameNumber = ['Jenny', '221345'];
 ```
 
+### 枚举类型
+
+使用 enum 关键字定义一个枚举类型，可以给指定的枚举类型设置一个初始值，那么后面的值会根据这个值进行累加(前提是 number 类型)，如果值为 string 等其他类型，需要手动设置值
+
+```TypeScript
+enum Roles {
+    ONE=1,
+    TWO,
+    THREE,
+    FOUR,
+    FIVE=100,
+    SEX,
+    SEVEN,
+    EIGHT = 2,
+}
+console.log(Roles.ONE)
+console.log(Roles.TWO)
+console.log(Roles.THREE)
+console.log(Roles.FOUR)
+console.log(Roles.FIVE)
+console.log(Roles.SEX)
+console.log(Roles.SEVEN)
+console.log(Roles.EIGHT)
+// output
+[LOG]: 1
+[LOG]: 2
+[LOG]: 3
+[LOG]: 4
+[LOG]: 100
+[LOG]: 101
+[LOG]: 102
+[LOG]: 2
+```
+
 ### 类型别名
 
 > TypeScript 提供了为类型注解设置别名的便捷语法，你可以使用 `type SomeName = someValidTypeAnnotation` 来创建别名：
@@ -613,6 +740,101 @@ if (b === undefined && c === undefined && d === undefined) {
     bottom: c,
     left: d
   };}
+```
+
+## class 类型
+
+- #### 提供了三个访问修饰符
+
+- - public
+  - private
+  - protected
+
+其中 protected 还可以修饰 contructor，以此来实现类似抽象类，不能直接实例化
+
+```JavaScript
+// js实现类似抽象类
+class Animal {
+    constructor() {
+        if(new.target === Animal) {
+            throw new Error('...')
+        }
+    }
+}
+// ts实现
+class Animal {
+    protected contructor() {
+
+    }
+}
+```
+
+#### 只读修饰符 readonly
+
+```TypeScript
+class Animal {
+    readonly name: string;
+    constructor(name: string) {
+        this.name = name;
+    }
+}
+```
+
+#### 静态属性
+
+```TypeScript
+class Animal {
+    public static Type: string = "Animal";
+    constructor() {}
+}
+Animal.Type;
+```
+
+#### 抽象类
+
+不能直接实例化，只能被继承，同时派生类必须定义对应抽象类中的声明的抽象函数（带有 abstract 的函数）;
+
+注意必须给类加上 abstract 关键字
+
+```TypeScript
+abstract class Animal {
+    constructor(name:string) {
+        this.name = name;
+    }
+    abstract printName():void;
+}
+
+class Cat extends Animal {
+    constructor(name: string) {
+        super(name);
+    }
+    printName() {
+        console.log(this.name);
+    }
+}
+```
+
+#### 类的接口
+
+类可以实现定义的接口，通过 implements 关键字；
+
+接口检测的是使用该接口定义的类创建的实例，所以下面第五行虽然定义了静态属性 type，但静态属性不会添加到实例上，所以还是会报错
+
+```TypeScript
+interface IFoodTypes {
+    type: string;
+}
+class Animal implements IFoodTypes {
+    static type: string = "123"; // 直接报错
+    constructor() {}
+}
+ // 修改
+class Animal implements IFoodTypes {
+    public type: string;
+    constrcutor(type: string) {
+        this.type = type;
+    }
+}
 ```
 
 ## 类型断言
@@ -751,3 +973,38 @@ type ReturnType<T> = T extends (...args: any[]) => infer R ? R : any;
 ```
 
 理解为：如果 `T` 继承了 `extends (...args: any[]) => any` 类型，则返回类型 `R`，否则返回 `any`。其中 `R` 是什么呢？`R` 被定义在 `extends (...args: any[]) => infer R` 中，即 R 是从传入参数类型中推导出来的。
+
+## 关于 tslint.json
+
+TSLint 是一个 tslint.json 进行配置的插件，在编写 TypeScript 代码时，可以对代码风格进行检查和提示。如果对代码风格有要求，就需要使用到 TSLint 了，其使用步骤如下：
+
+```Shell
+# 安装TSLint
+npm install tslint -g
+
+# 使用TSLint初始化配置文件
+tslint -i
+```
+
+执行初始化之后，会在根目录下生成一个 tslint.json 的配置文件，里面的初始内容如下：
+
+```JSON
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {},
+    "rules": {},
+    "rulesDirectory": []
+}
+```
+
+- defaultSeverity: 提醒级别，分别如下：
+  - error， 此时会报错
+  - warning，此时会出现警告
+  - off，关闭对应 tslint
+- extends：可以指定继承指定的预配置规则；
+- jsRules：用来配置对.js 和 .jsx 文件的校验， 配置规则的方法和下面的 rules 一样
+- rules：TSLint 检查代码的规则都是在这种进行配置，比如当我们不允许代码中使用 eval 方法时，就要在这里配置"no-eval": true
+- rulesDirectory: 可以指定规则配置文件，这里指定相对路径
