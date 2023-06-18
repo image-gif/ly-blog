@@ -354,7 +354,11 @@ export default defineConfig({
             {
               text: '判断是否为偶数',
               link: '/tool-function/javascript/is-even'
-            }
+            },
+            {
+              text: '随机数',
+              link: '/tool-function/javascript/random'
+            },
           ]
         }
       ],
