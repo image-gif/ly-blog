@@ -154,6 +154,8 @@ export default defineConfig({
       ],
       '/front-end/framework/vue/': [
         { text: 'vue基础', link: '/front-end/framework/vue/index' },
+        { text: 'vue3', link: '/front-end/framework/vue/vue-three' },
+        { text: 'pinia', link: '/front-end/framework/vue/pinia' },
         { text: '源码阅读', link: '/front-end/framework/vue/vue-source' },
         { text: 'vue数据绑定', link: '/front-end/framework/vue/data-bind' },
         {
